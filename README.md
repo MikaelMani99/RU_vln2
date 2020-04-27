@@ -1,2 +1,2 @@
 # RU_vln2
-Verklegt námskei II, Háskólinn í Reykjavík
+Verklegt námskeið II, Háskólinn í Reykjavík
