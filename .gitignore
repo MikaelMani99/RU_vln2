@@ -131,3 +131,6 @@ dmypy.json
 # idea
 *.iml
 *.xml
+
+# ignore vscode Django stuff
+.vscode/
