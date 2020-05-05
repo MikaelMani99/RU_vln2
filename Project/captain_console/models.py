@@ -50,3 +50,10 @@ class Order(models.Model):
     status = models.CharField(max_length=255)
     total = models.IntegerField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class History(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    time_stamp = models.DateTimeField()
+
+    def __str__(self):
+        return self.user_id + ": " + self.time_stamp
