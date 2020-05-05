@@ -39,7 +39,22 @@ Navigation
 ========================================================
 Main Content
 ========================================================
-*/ 
+*/
+
+.product a { /* Take colour off product names that are links */
+    color: black !important;
+    text-decoration: none;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 0;
+    margin: 0;
+    background-image: none;
+    background-color: white;
+    text-align: center;
+}
 
 /*
 ========================================================
