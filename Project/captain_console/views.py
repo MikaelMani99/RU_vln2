@@ -1,8 +1,7 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from captain_console.models import Product, ProductImage
-
+# adding the modules needed
+from captain_console.models import Product, ProductImage, User
 
 def index(request, **kwargs):
     if 'category' in kwargs:
@@ -13,6 +12,15 @@ def index(request, **kwargs):
     context = {'products': Product.objects.all()}
     return render(request, 'captain/index.html', context)
 
-def profile(request):
-    return render(request, 'captain/profile.html')
+# fetches the product using a dynamic parameter like
+# /captain/product/1
+def get_product_by_id(request, id):
+    return render(request, 'captain/product_details.html', {
+        'product': get_object_or_404(Product, pk=id)
+    })
 
+def get_profile_by_id(request, id):
+
+    return render(request, 'captain/profile.html', {
+        'user': get_object_or_404(User, pk=id)
+    })
