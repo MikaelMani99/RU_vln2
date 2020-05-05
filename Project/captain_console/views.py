@@ -1,14 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
-from captain_console.models import Product, ProductImage
+from captain_console.models import Product, ProductImage, User
 
 
 def index(request):
     return render(request, 'captain/index.html')
 
-def profile(request):
-    return render(request, 'captain/profile.html')
+def get_profile_by_id(request, id):
+
+    return render(request, 'captain/profile.html', {
+        'user': get_object_or_404(User, pk=id)
+    })
 
     # product = [{
     #     'id': p.id,
