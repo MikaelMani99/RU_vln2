@@ -1,8 +1,15 @@
 from django.shortcuts import render
+
 from django.http import HttpResponse
 from captain_console.models import Product, ProductImage
 
+
 def index(request):
+    return render(request, 'captain/index.html')
+
+def profile(request):
+    return render(request, 'captain/profile.html')
+
     # product = [{
     #     'id': p.id,
     #     'name': p.name,
@@ -17,3 +24,4 @@ def index(request):
     # return JsonResponse({'data':captain})
     context = {'products': Product.objects.all()}
     return render(request, 'captain/index.html', context)
+
