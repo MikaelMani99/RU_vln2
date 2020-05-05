@@ -10,11 +10,16 @@ class User(models.Model):
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.full_name
 
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=255)
-
+    
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -23,11 +28,16 @@ class Product(models.Model):
     amount = models.IntegerField()
     price = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 
 class ProductImage(models.Model):
     image = models.CharField(max_length=999)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.product.name
 
 class Cart(models.Model):
     amount = models.IntegerField()
