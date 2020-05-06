@@ -4,7 +4,7 @@
   // and highlights the navbar accordingly 
   function highlightNavbar(){
     let path_split = window.location.pathname.split('/');
-    if(path_split.length === 3){
+    if(path_split.length === 3 && path_split[1] === "captain"){
       document.getElementById("home").classList.add("active");
     }else{
       try{
@@ -15,6 +15,5 @@
       }
     }
   }
-
   highlightNavbar();
 })();

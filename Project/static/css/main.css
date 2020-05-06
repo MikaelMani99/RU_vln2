@@ -29,15 +29,21 @@ Header
     text-shadow: 2px 2px #000000;
 }
 
-.Title{
-
-}
 /*
 ========================================================
 Navigation
 ========================================================
 */ 
-
+.cart_and_profile{
+    display: flex;
+}
+.cart_and_profile img{
+    height: 2em;
+}
+.cart_and_profile a{
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
 /*
 ========================================================
 Main Content
