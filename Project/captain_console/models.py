@@ -43,6 +43,10 @@ class ProductImage(models.Model):
     def __str__(self):
         return self.product.name
 
+class UserImage(models.Model):
+    image = models.CharField(max_length=999)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 class Cart(models.Model):
     amount = models.IntegerField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
