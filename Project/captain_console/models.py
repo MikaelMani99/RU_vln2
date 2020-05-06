@@ -28,6 +28,10 @@ class Product(models.Model):
     amount = models.IntegerField()
     price = models.IntegerField()
 
+
+    def getPrice(self):
+        return "${}".format(self.price/100)
+
     def __str__(self):
         return self.name
 
