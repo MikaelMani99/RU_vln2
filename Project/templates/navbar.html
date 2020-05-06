@@ -14,10 +14,10 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'captain_console_index' %}">Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="{% url 'category_consoles' %}">Consoles</a></li>
-          <li><a href="{% url 'category_games' %}">Games</a></li>
-          <li><a href="{% url 'category_accessories' %}">Accessories</a></li>
+          <li id="home"><a href="{% url 'captain_console_index' %}">Home <span class="sr-only">(current)</span></a></li>
+          <li id="consoles"><a href="{% url 'category_consoles' %}">Consoles</a></li>
+          <li id="games"><a href="{% url 'category_games' %}">Games</a></li>
+          <li id="accessories"><a href="{% url 'category_accessories' %}">Accessories</a></li>
           <li class="dropdown">
             <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
             <ul class="dropdown-menu">
