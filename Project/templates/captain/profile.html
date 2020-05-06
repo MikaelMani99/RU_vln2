@@ -1,12 +1,13 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content%}
-    <div class="profile_picture">
-        <img src="{% static 'images/johannprofile.jpg' %}" alt="Johann Picture" style="width:100%">
+    <div class="profile_card">
+        <img class="profile_picture" src="{% static 'images/johannprofile.jpg' %}" alt="Johann Picture">
         <div class="profile_name">
             {{ user.full_name }}
         </div>
         <div class="profile_info">
+            <br>
             <p> {{ user.email }} </p>
             <p> {{ user.phone }} </p>
             <p> {{ user.address }} </p>
