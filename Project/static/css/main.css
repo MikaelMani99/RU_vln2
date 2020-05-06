@@ -131,17 +131,25 @@ Profile
 .profile_name{
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     color: darkorange;
-    font-family: 'Press Start 2P'
+    font-family: 'Press Start 2P';
+    font-size: 1em;
 }
 
 .profile_picture{
+    width: 100%;
+    height: 100%;
+    border: thick;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.profile_card{
+    width:200px;
     text-align: center;
-    width: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .profile_info{
-    font-family: 'Press Start 2P';
     font-size: 0.7em;
-    color: black
+    color: black;
 }
