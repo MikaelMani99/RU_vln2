@@ -43,7 +43,6 @@ class ProductImage(models.Model):
     def __str__(self):
         return self.product.name
 
-<<<<<<< HEAD
 class CartItem(models.Model):
     cart = models.ForeignKey('Cart', null=True, blank=True, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -57,11 +56,10 @@ class CartItem(models.Model):
             return str(self.cart.id)
         except:
             return self.product.title
-=======
+
 class UserImage(models.Model):
     image = models.CharField(max_length=999)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
->>>>>>> master
 
 class Cart(models.Model):
     #items = models.ManyToManyField(CartItem, null=True, blank=True)
