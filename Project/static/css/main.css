@@ -93,6 +93,10 @@ Footer
 .socials h4{
     width: 100%;
 }
+.text-shadow {
+    color: #FFFFFF;
+    text-shadow: 3px 3px #000000;
+}
 .fa{
     width: 10%;
     font-size: 2em;

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sessions.backends.cached_db',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'captain_console.apps.CaptainConsoleConfig',
@@ -85,7 +86,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
