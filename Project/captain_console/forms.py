@@ -11,8 +11,13 @@ class OrderFilter(forms.Form):
     filter_choices = [(str(c.id), c.name) for c in categories]
     filter_choices.insert(0, ('0', 'Category'))
 
+    # categories = ProductCategory.objects.all()
+    # filter_choices = [(str(c.id), c.name) for c in categories]
+    # filter_choices.insert(0, ('0', 'Category'))
+
     ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER))
     FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
+    #FILTER_TYPES = forms.CharField(widget=forms.Select(choices=filter_type_choices))
 
     class Media:
         css = {
