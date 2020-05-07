@@ -45,6 +45,7 @@ Extra Content
 .container_centered {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 0.5em;
 }
 
 p {
@@ -53,7 +54,6 @@ p {
 
 .order_filter {
     display: flex;
-    font-family: 'Press Start 2P', cursive;
     align-items: center;
 }
 
@@ -67,6 +67,25 @@ p {
 
 .form-inline {
     display: flex;
+}
+
+
+
+button {
+    height: fit-content;
+}
+
+ul li{
+    display: inline;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    padding: 0.4em;
 }
 
 .cart_and_profile{
