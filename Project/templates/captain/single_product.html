@@ -2,8 +2,11 @@
 
 <div class="product">
     <a href="/product/{{ product.id }}">
-        <img class="product_img" src="{{ product.productimage_set.first.image }}">
+        <div class="product_img">
+            <img src="{{ product.productimage_set.first.image }}">
+        </div>
         <h4> {{ product.name }}</h4>
-        <p> {{ product.getPrice }} </p>
+        <p> {{product.getPrice }}</p>
     </a>
+    <button type="button" class="btn btn-primary">plunder</button>
 </div>

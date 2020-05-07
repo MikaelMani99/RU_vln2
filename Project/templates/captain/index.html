@@ -2,9 +2,7 @@
 {% block extra %}
 {% endblock %}
 {% block content%}
-    <div class="product">
-        {% for product in products %}
-        {% include 'captain/single_product.html' with product=product %}
-        {% endfor %}
-    </div>
+    {% for product in products %}
+    {% include 'captain/single_product.html' with product=product %}
+    {% endfor %}
 {% endblock %}
