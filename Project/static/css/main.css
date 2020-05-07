@@ -29,14 +29,76 @@ Header
     text-shadow: 2px 2px #000000;
 }
 
-.Title{
-
-}
 /*
 ========================================================
 Navigation
 ========================================================
-*/ 
+
+*/
+
+/*
+========================================================
+Extra Content
+========================================================
+*/
+
+.container_centered {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+p {
+    text-align: center;
+}
+
+.order_filter {
+    display: flex;
+    align-items: center;
+}
+
+.orange_border {
+    border: 0.2em solid #e67e22;
+}
+
+.orange_box {
+    background-color: #e67e22;
+}
+
+.form-inline {
+    display: flex;
+}
+
+
+
+button {
+    height: fit-content;
+}
+
+ul li{
+    display: inline;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    padding: 0.4em;
+}
+
+.cart_and_profile{
+    display: flex;
+}
+.cart_and_profile img{
+    height: 2em;
+}
+.cart_and_profile a{
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
 
 /*
 ========================================================
@@ -48,17 +110,49 @@ Main Content
     color: black !important;
     text-decoration: none;
 }
-
-.product {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-radius: 0;
-    margin: 0;
-    background-image: none;
-    background-color: white;
-    text-align: center;
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-left: 5em;
+    padding-right: 5em;
 }
-
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20em;
+    padding: 1em;
+    transition: all 1s;
+    
+}
+.product:hover{
+    width: 25em;
+    transform: 1s scale(1.25, 1.25);
+    
+}
+.product_img{
+    flex: 1 100%;
+    height: 60%;
+    position: relative;
+    width: 100%;
+}
+.product_img:after{
+    content: "";
+    display: block;
+    padding-bottom: 80%;
+}
+.product_img img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.product button{
+    width: 50%;
+    float: right !important;
+}
 /*
 ========================================================
 Footer
@@ -116,4 +210,35 @@ Footer
 .fa-instagram{
     color: white;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+/*
+========================================================
+Profile
+========================================================
+*/
+.profile_name{
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: darkorange;
+    font-family: 'Press Start 2P';
+    font-size: 1em;
+}
+
+.profile_picture{
+    width: 100%;
+    height: 100%;
+    border: thick;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.profile_card{
+    width:200px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile_info{
+    font-size: 0.7em;
+    color: black;
 }

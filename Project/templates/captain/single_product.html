@@ -1,9 +1,12 @@
 {% load static %}
 
 <div class="product">
-    <a href="#">
-        <img class="product_img" src="{{ product.productimage_set.first.image }}">
+    <a href="/product/{{ product.id }}">
+        <div class="product_img">
+            <img src="{{ product.productimage_set.first.image }}">
+        </div>
         <h4> {{ product.name }}</h4>
-        <p> {{product.price }} ISK</p>
+        <p> {{product.getPrice }}</p>
     </a>
+    <button type="button" class="btn btn-primary">plunder</button>
 </div>
