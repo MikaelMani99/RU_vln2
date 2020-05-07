@@ -90,26 +90,49 @@ Main Content
     color: black !important;
     text-decoration: none;
 }
-
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-left: 5em;
+    padding-right: 5em;
+}
 .product {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-radius: 0;
-    margin: 0;
-    background-image: none;
-    background-color: white;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20em;
+    padding: 1em;
+    transition: all 1s;
+    
 }
-
-.products .product:hover .product_img {
-    transform: perspective(400px) scale(1.1) rotateY(15deg);
+.product:hover{
+    width: 25em;
+    transform: 1s scale(1.25, 1.25);
+    
 }
-
-.product_img {
-    width: 200px;
-    transition: transform 1s ease-in;
+.product_img{
+    flex: 1 100%;
+    height: 60%;
+    position: relative;
+    width: 100%;
 }
-
+.product_img:after{
+    content: "";
+    display: block;
+    padding-bottom: 80%;
+}
+.product_img img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.product button{
+    width: 50%;
+    float: right !important;
+}
 /*
 ========================================================
 Footer
