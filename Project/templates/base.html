@@ -19,6 +19,8 @@
         {% include "header.html"%}
         {% include "navbar.html"%}
         <div class="container">
+            {% block extra %}
+            {% endblock %}
             {% block content %}
             {% endblock %}
         </div>

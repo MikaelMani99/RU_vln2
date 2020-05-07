@@ -36,7 +36,40 @@ Header
 ========================================================
 Navigation
 ========================================================
-*/ 
+*/
+
+/*
+========================================================
+Extra Content
+========================================================
+*/
+
+.container_centered {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p {
+    text-align: center;
+}
+
+.order_filter {
+    display: flex;
+    font-family: 'Press Start 2P', cursive;
+    align-items: center;
+}
+
+.orange_border {
+    border: 0.2em solid #e67e22;
+}
+
+.orange_box {
+    background-color: #e67e22;
+}
+
+.form-inline {
+    display: flex;
+}
 
 /*
 ========================================================
