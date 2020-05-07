@@ -7,7 +7,7 @@ urlpatterns = [
     path('products/', views.get_all_products, name="product_details"),
     path('profile/<int:id>', views.get_profile_by_id, name="profile_page"),
     path('cart/', views.get_cart, name="cart_page"),
-    path('cart/<int:id>', views.update_cart, name="update_cart")
+    path('cart/<int:id>', views.update_cart, name="update_cart"),
     path('consoles/', views.index, kwargs={'category': 1}, name="category_consoles"),
     path('games/', views.index, kwargs={'category': 2}, name="category_games"),
     path('accessories/', views.index, kwargs={'category': 3}, name="category_accessories"),

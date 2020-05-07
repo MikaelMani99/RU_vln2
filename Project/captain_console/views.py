@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 # adding the modules needed
 from captain_console.models import Product, ProductImage, User, Cart, CartItem
-=======
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-# adding the modules needed
-from captain_console.models import Product, ProductImage, User
 from .forms import CHOICES
->>>>>>> master
 
 def index(request, **kwargs):
     if 'search_filter' in request.GET:
@@ -121,7 +114,6 @@ def get_profile_by_id(request, id):
     return render(request, 'captain/profile.html', {
         'user': get_object_or_404(User, pk=id)
     })
-<<<<<<< HEAD
 
     # product = [{
     #     'id': p.id,
@@ -142,5 +134,3 @@ def get_all_products(request):
     return render(request, 'captain/product_details.html', {
         'products': Product.objects.all()
     })
-=======
->>>>>>> master
