@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 # adding the modules needed
 from captain_console.models import Product, ProductImage, User
@@ -24,6 +24,7 @@ def search_page(request):
         product_ls = list(Product.objects.filter(name__icontains=search_filter))
     context = {'products': product_ls, 'form': form}
     return render(request, 'captain/search_page.html', context)
+    # render(request, '/captain/search_page.html', context)
 
 def filter_by_category(category):
     return list(Product.objects.filter(category=category))

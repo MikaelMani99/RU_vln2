@@ -36,7 +36,7 @@
           <li id="consoles"><a href="{% url 'category_consoles' %}">Cart (0) <img src="{% static 'images/chest.svg' %}"></a></li>
           <li id="consoles"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>
         </ul>
-        <form class="navbar-form navbar-right">
+        <form class="navbar-form navbar-right" action="{% url 'search_page' %}" method="GET">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" name="search_filter">
           </div>
