@@ -29,13 +29,11 @@ Header
     text-shadow: 2px 2px #000000;
 }
 
-.Title{
-
-}
 /*
 ========================================================
 Navigation
 ========================================================
+
 */
 
 /*
@@ -69,6 +67,17 @@ p {
 
 .form-inline {
     display: flex;
+}
+
+.cart_and_profile{
+    display: flex;
+}
+.cart_and_profile img{
+    height: 2em;
+}
+.cart_and_profile a{
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
 }
 
 /*
@@ -154,4 +163,35 @@ Footer
 .fa-instagram{
     color: white;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+/*
+========================================================
+Profile
+========================================================
+*/
+.profile_name{
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: darkorange;
+    font-family: 'Press Start 2P';
+    font-size: 1em;
+}
+
+.profile_picture{
+    width: 100%;
+    height: 100%;
+    border: thick;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.profile_card{
+    width:200px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile_info{
+    font-size: 0.7em;
+    color: black;
 }
