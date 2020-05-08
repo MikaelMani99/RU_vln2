@@ -10,7 +10,7 @@ def index(request, **kwargs):
     if 'search_filter' in request.GET:
         return search_page(request)
     if 'category' in kwargs:
-        product_ls = filter_by_category(kwargs['category'])
+        product_ls = Product.objects.filter(category=kwargs['category'])
     else:
         product_ls = list(Product.objects.all())
     context = {'products': product_ls}
