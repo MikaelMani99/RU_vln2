@@ -4,11 +4,11 @@
   // and highlights the navbar accordingly 
   function highlightNavbar(){
     let path_split = window.location.pathname.split('/');
-    if(path_split.length === 3 && path_split[1] === "captain"){
+    if(path_split.length === 2 && path_split[1] === ""){
       document.getElementById("home").classList.add("active");
     }else{
       try{
-        let highlight_this = document.getElementById(path_split[2]);
+        let highlight_this = document.getElementById(path_split[1]);
         highlight_this.classList.add("active");
       }catch{
         console.log("nothing to highlight");
