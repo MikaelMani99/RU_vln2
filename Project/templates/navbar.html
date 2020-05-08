@@ -33,8 +33,14 @@
         </ul>
         <!-- the login and cart buttons-->
         <ul class="nav navbar-nav navbar-right cart_and_profile">
-          <li id="consoles"><a href="{% url 'category_consoles' %}">Cart (0) <img src="{% static 'images/chest.svg' %}"></a></li>
-          <li id="consoles"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>
+          <li id="cart"><a href="{% url 'cart_page' %}">Cart (0) <img src="{% static 'images/chest.svg' %}"></a></li>
+          <li id="profile"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
         </ul>
         <form class="navbar-form navbar-right" action="{% url 'search_page' %}" method="GET">
           <div class="form-group">
