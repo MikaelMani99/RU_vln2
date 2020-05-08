@@ -22,12 +22,15 @@ def search_page(request):
     products = Product.objects.filter(name__icontains=search_filter)
     form = OrderFilter(request.POST)
     if form.is_valid():
-        selected_filter = form.cleaned_data.get("FILTER")
-        if is_valid_query_param(selected_filter) and selected_filter != 'Category':
-            products = products.filter(category=selected_filter)
-        selected_order = form.cleaned_data.get("ORDER")
-        if is_valid_query_param(selected_order):
-            products = products.order_by(selected_order)
+        selected = form.cleaned_data.get("FILTER")
+        if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'Choose catgory...'
+            products = products.filter(category=selected)
+        selected = form.cleaned_data.get("FILTER_TYPE")
+        if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'Choose type...'
+            products = products.filter(type=selected)
+        selected = form.cleaned_data.get("ORDER")
+        if is_valid_query_param(selected):
+            products = products.order_by(selected)
     context = {
                 'products': products,
                 'form': form,

@@ -1,23 +1,24 @@
 from django import forms
-from captain_console.models import ProductCategory
+from captain_console.models import ProductCategory, ProductType
 
 ORDER = [
     ('name', 'Name'),
     ('price', 'Price'),
+    ('amount', 'Amount')
     ]
 
 class OrderFilter(forms.Form):
     categories = ProductCategory.objects.all()
     filter_choices = [(str(c.id), c.name) for c in categories]
-    filter_choices.insert(0, ('0', 'Category'))
+    filter_choices.insert(0, ('0', 'Choose category...'))
 
-    # categories = ProductCategory.objects.all()
-    # filter_choices = [(str(c.id), c.name) for c in categories]
-    # filter_choices.insert(0, ('0', 'Category'))
+    types = ProductType.objects.all()
+    filter_type_choices = [(str(t.id), t.name) for t in types]
+    filter_type_choices.insert(0, ('0', 'Choose type...'))
 
     ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER))
     FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
-    #FILTER_TYPES = forms.CharField(widget=forms.Select(choices=filter_type_choices))
+    FILTER_TYPE = forms.CharField(widget=forms.Select(choices=filter_type_choices))
 
     class Media:
         css = {
