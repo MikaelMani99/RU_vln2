@@ -21,10 +21,18 @@ class ProductCategory(models.Model):
     def __str__(self):
         return self.name
 
+
+class ProductType(models.Model):
+    name = models.CharField(max_length=255, default='Type')
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=999, blank=True)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    type = models.ForeignKey(ProductType, on_delete=models.CASCADE, default=0)
     amount = models.IntegerField()
     price = models.IntegerField()
 

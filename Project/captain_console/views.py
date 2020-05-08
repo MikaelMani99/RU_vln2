@@ -2,40 +2,44 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 # adding the modules needed
-from captain_console.models import Product, ProductImage, User, Cart, CartItem
-from .forms import CHOICES
+from captain_console.models import Product, ProductImage, User, ProductCategory, Cart, CartItem
+from .forms import OrderFilter
+
 
 def index(request, **kwargs):
     if 'search_filter' in request.GET:
         return search_page(request)
     if 'category' in kwargs:
-        product_ls = filter_by_category(kwargs['category'])
+        product_ls = Product.objects.filter(category=kwargs['category'])
     else:
         product_ls = list(Product.objects.all())
     context = {'products': product_ls}
     return render(request, 'captain/index.html', context)
 
+
 def search_page(request):
     search_filter = request.GET.get('search_filter')
-    form = CHOICES(request.POST)
+    products = Product.objects.filter(name__icontains=search_filter)
+    form = OrderFilter(request.POST)
     if form.is_valid():
+        selected = form.cleaned_data.get("FILTER")
+        if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'Choose catgory...'
+            products = products.filter(category=selected)
+        selected = form.cleaned_data.get("FILTER_TYPE")
+        if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'Choose type...'
+            products = products.filter(type=selected)
         selected = form.cleaned_data.get("ORDER")
-        product_ls = list(Product.objects.filter(name__icontains=search_filter).order_by(selected))
-    else:
-        product_ls = list(Product.objects.filter(name__icontains=search_filter))
-    context = {'products': product_ls, 'form': form}
+        if is_valid_query_param(selected):
+            products = products.order_by(selected)
+    context = {
+                'products': products,
+                'form': form,
+    }
     return render(request, 'captain/search_page.html', context)
-    # render(request, '/captain/search_page.html', context)
 
-def filter_by_category(category):
-    return list(Product.objects.filter(category=category))
 
-def filter_through_ls(ls, filter):
-    new_ls = []
-    for p in ls:
-        if p.category.id == filter:
-            new_ls.append(p)
-    return new_ls
+def is_valid_query_param(param):
+    return param != '' and param is not None
 
 
 def get_cart(request):
@@ -51,6 +55,7 @@ def get_cart(request):
         cart_status = {"empty": True, "empty_message": empty_message}
 
     return render(request, 'captain/cart.html', cart_status)
+
 
 def update_cart(request, id):
     request.session.set_expiry(172800)
@@ -109,26 +114,13 @@ def get_product_by_id(request, id):
         'product': get_object_or_404(Product, pk=id)
     })
 
+
 def get_profile_by_id(request, id):
 
     return render(request, 'captain/profile.html', {
         'user': get_object_or_404(User, pk=id)
     })
 
-    # product = [{
-    #     'id': p.id,
-    #     'name': p.name,
-    #     'description': p.description,
-    #     'category': p.category,
-    #     'amount': p.amount,
-    #     'price':p.price,
-    #     'firstImage': p.productimage_set.first().image
-    # } for p in Product.objects.filter(category__icontains='console')
-    # ]
-    # product = list(Product.objects.filter(category__icontains='console'))
-    # return JsonResponse({'data':captain})
-    # context = {'products': Product.objects.all()}
-    # return render(request, 'captain/index.html', context)
 
 def get_all_products(request):
     return render(request, 'captain/product_details.html', {
