@@ -8,5 +8,7 @@
         <h4> {{ product.name }}</h4>
         <p> {{product.getPrice }}</p>
     </a>
-    <button type="button" class="btn btn-primary">plunder</button>
+    <form action="{% url 'update_cart' product.id %}" method="GET">
+        <button type="submit" class="btn btn-primary" action>plunder</button>
+    </form>
 </div>
