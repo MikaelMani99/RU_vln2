@@ -15,13 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('', include('captain_console.urls')),
-    path('admin/', admin.site.urls),
-    path('chest/', include('chest.urls')),
-    path('product/', include('product.urls')),
-    path('search/', include('search.urls')),
-    path('checkout/', include('checkout.urls')),
-    path('profile/', include('user_profile.urls'))
+    path('', views.get_cart, name="cart_page"),
+    path('<int:id>', views.update_cart, name="update_cart")
 ]

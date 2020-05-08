@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'captain_console.apps.CaptainConsoleConfig',
+    'checkout.apps.CheckoutConfig',
+    'chest.apps.ChestConfig',
+    'product.apps.ProductConfig',
+    'search.apps.SearchConfig',
+    'user_profile.apps.UserProfileConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +84,9 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'llcxcvgx',
-        'USER': 'llcxcvgx',
-        'PASSWORD': 'Ow-P_LpFYLqtw4SopEsUuMxNsSJxMysE',
+        'NAME': 'wlqlgrps',
+        'USER': 'wlqlgrps',
+        'PASSWORD': 'uAoDP5Kqegb3KKqXyPMzQuqHaLvhjAge',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     }

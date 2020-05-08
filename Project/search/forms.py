@@ -1,5 +1,5 @@
 from django import forms
-from captain_console.models import ProductCategory, ProductType
+from product.models import ProductCategory, ProductType
 
 ORDER = [
     ('name', 'Name'),
