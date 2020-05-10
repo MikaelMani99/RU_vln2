@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm ######, UserChangeForm NEED LATER???
 from user_profile.models import User, UserImage, History
 
