@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Q
 # Create your views here.
 
 from product.models import Product, ProductImage, ProductCategory, ProductType
@@ -8,7 +9,10 @@ from .forms import OrderFilter
 
 def search_page(request):
     search_filter = request.GET.get('search_filter')
-    products = Product.objects.filter(name__icontains=search_filter)
+    products = Product.objects.filter(Q(name__icontains=search_filter) |
+                                      Q(type__name__icontains=search_filter) |
+                                      Q(category__name__icontains=search_filter)
+                                      )
     form = OrderFilter(request.POST)
     if form.is_valid():
         selected = form.cleaned_data.get("FILTER")
