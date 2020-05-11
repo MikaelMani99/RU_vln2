@@ -127,7 +127,7 @@ Main Content
     
 }
 .product:hover{
-    width: 25em;
+    width: 22.5em;
     transform: 1s scale(1.25, 1.25);
     
 }
