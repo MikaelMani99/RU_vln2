@@ -117,6 +117,18 @@ Main Content
     padding-left: 5em;
     padding-right: 5em;
 }
+.container_text{
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 1.25em;
+}
+h2{
+    text-align: center;
+}
+.bullet_list{
+    list-style: circle !important;  /* need to fix up the bullet list in privacy policy */
+    display: inline !important;
+}
 .product {
     display: flex;
     flex-direction: column;
