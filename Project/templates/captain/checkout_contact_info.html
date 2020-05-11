@@ -1,5 +1,13 @@
 {% extends 'base.html'%}
 {% block content%}
+<form>
+    <input type="text" placeholder="Fullname"/><br>
+    <input type="text" placeholder="Address"/><br>
+    <input type="text" placeholder="City"/><br>
+    <input type="text" placeholder="Country"/><br>
+    <input type="text" placeholder="Postal Code"/><br>
+    <input type="submit" value="Next"/>
+</form>
 <style>
     table {
   border-collapse: collapse;
@@ -28,10 +36,8 @@ th {
         <td>{{ item.product }}</td>
         <td>{{ item.product.getPrice }}</td>
         <td>{{ item.quantity }}</td>
-        <td><a href='{% url "update_cart" item.product.id %}?qty=0'>Remove</a></td>
     </tr>
     {% endfor %}
     <h3>Total: {{ cart.getTotalPrice }}</h3>
 </table>
-<a href="../checkout/">Proceed to checkout</a>
 {% endblock %}
