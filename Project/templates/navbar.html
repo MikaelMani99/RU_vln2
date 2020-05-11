@@ -21,13 +21,15 @@
           <li class="dropdown">
             <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="{% url 'category_posters' %}">Posters</a></li>
               <li><a href="{% url 'captain_console_index' %}">Action</a></li>
               <li><a href="{% url 'captain_console_index' %}">Another action</a></li>
-              <li><a href="{% url 'captain_console_index' %}">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="{% url 'captain_console_index' %}">Separated link</a></li>
+              <li><a href="{% url 'about_us' %}">About Us</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="{% url 'captain_console_index' %}">One more separated link</a></li>
+              <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{% url 'returns' %}">Shipping & Returns</a></li>
             </ul>
           </li>
         </ul>
