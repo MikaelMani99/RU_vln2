@@ -23,3 +23,5 @@ def index(request, **kwargs):
     context = {'products': product_ls}
     return render(request, page, context)
 
+def other(request, **kwargs):
+    return render(request, 'captain/'+kwargs['site']+'.html')

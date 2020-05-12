@@ -14,7 +14,7 @@
             <div class="dec qty-button">-</div>
         </div>
         <div class="product-price">{{ item.product.getPrice }}</div>
-         <a href='{% url "update_cart" item.product.id %}?qty=0'>Remove</a>
+        <a href='{% url "update_cart" %}'>Remove</a>
     </div>
     {% endfor %}
     <div class="cart_total">

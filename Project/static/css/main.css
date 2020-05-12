@@ -154,12 +154,30 @@ Main Content
     color: black !important;
     text-decoration: none;
 }
+.products {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
 .container{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     padding-left: 5em;
     padding-right: 5em;
+}
+.container_text{
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 1.25em;
+}
+h2{
+    text-align: center;
+}
+.bullet_list{
+    list-style: circle !important;  /* need to fix up the bullet list in privacy policy */
+    display: inline !important;
 }
 .product {
     display: flex;

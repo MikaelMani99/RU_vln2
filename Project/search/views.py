@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.db.models import Q
 # Create your views here.
@@ -24,6 +24,14 @@ def search_page(request):
         selected = form.cleaned_data.get("ORDER")
         if is_valid_query_param(selected):
             products = products.order_by(selected)
+        product = [{
+            'id': p.id,
+            'name': p.name,
+            'price': p.getPrice(),
+            'firstImage': p.productimage_set.first().image
+        } for p in products
+        ]
+        return JsonResponse({'products': product})
     context = {
                 'products': products,
                 'form': form,

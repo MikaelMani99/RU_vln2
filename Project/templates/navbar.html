@@ -21,20 +21,25 @@
           <li class="dropdown">
             <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="{% url 'category_posters' %}">Posters</a></li>
               <li><a href="{% url 'captain_console_index' %}">Action</a></li>
               <li><a href="{% url 'captain_console_index' %}">Another action</a></li>
-              <li><a href="{% url 'captain_console_index' %}">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="{% url 'captain_console_index' %}">Separated link</a></li>
+              <li><a href="{% url 'about_us' %}">About Us</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="{% url 'captain_console_index' %}">One more separated link</a></li>
+              <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{% url 'returns' %}">Shipping & Returns</a></li>
             </ul>
           </li>
         </ul>
         <!-- the login and cart buttons-->
         <ul class="nav navbar-nav navbar-right cart_and_profile">
-          <li id="cart"><a href="{% url 'cart_page' %}">Cart ({% if not request.session.total_items %}0{% else %}{{ request.session.total_items }}{% endif %}) <img src="{% static 'images/chest.svg' %}"></a></li>
-
+          <form method="POST" action="{% url 'update_cart' %}">{% csrf_token %}
+            <input type="hidden" id="cart_storage" name="cart_storage" value="">
+          <!--<li id="cart"><p id = "nav_cart">Cart (0) <img src="{% static 'images/chest.svg' %}"></p></li>-->
+            <button type="submit" id = "nav_cart" class="btn btn-default">Cart (0)<img src="{% static 'images/chest.svg' %}"></button>
+          </form>
           {% if user.is_authenticated %}
             <!--<li id="profile"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>-->
             <li>
@@ -48,6 +53,7 @@
           {% endif %}
         </ul>
         <form class="navbar-form navbar-right" action="{% url 'search_page' %}" method="GET">
+
           <div class="input-group">
             <input type="text" class="form-control search-input" placeholder="Search" name="search_filter">
           <div class="input-group-btn">
@@ -57,6 +63,7 @@
           </button>
         </div>
           <!--<button type="submit" class="btn btn-default">Submit</button>-->
+
         </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
