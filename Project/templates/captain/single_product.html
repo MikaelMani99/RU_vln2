@@ -3,6 +3,7 @@
     <a href="/product/{{ product.id }}">
         <div class="product_img">
             <img src="{{ product.productimage_set.first.image }}">
+            <div class="discountRibbon {{ product.on_sale }}">Discount {{ product.getDiscount }}</div>
         </div>
         <div class="product-info product-category"> {{ product.category }}</div>
         <div class="product-info product-name"> {{ product.name }}</div>

@@ -24,9 +24,17 @@ class Product(models.Model):
     type = models.ForeignKey(ProductType, on_delete=models.CASCADE, default=0)
     amount = models.IntegerField()
     price = models.IntegerField()
+    on_sale = models.BooleanField(default=False)
+    discount = models.IntegerField(default=0)
 
     def getPrice(self):
+        if self.on_sale:
+            sale_price = round(((self.price / 100) * (self.discount / 100)), 2)
+            return "BEFORE: ${} NOW: ${}".format((self.price / 100), sale_price)
         return "${}".format(self.price / 100)
+
+    def getDiscount(self):
+        return "{}%".format(self.discount)
 
     def __str__(self):
         return self.name

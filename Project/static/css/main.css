@@ -114,8 +114,6 @@ p {
     display: flex;
 }
 
-
-
 button {
     height: fit-content;
 }
@@ -154,6 +152,7 @@ Main Content
     color: black !important;
     text-decoration: none;
 }
+
 .products {
     width: 100%;
     display: flex;
@@ -181,6 +180,7 @@ h2{
 }
 .product {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: center;
     width: 21.5em;
@@ -206,6 +206,30 @@ h2{
     display: block;
     padding-bottom: 80%;
 }
+.discountRibbon {
+    visibility: hidden;
+    height: 2em;
+    width: 15em;
+    background-color: #9C1B21;
+    position: absolute;
+    top: 1em;
+    right: -4em;
+    text-align: center;
+    color: #FFF;
+    font-weight: 600;
+    font-size: 1em;
+    white-space: nowrap;
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+.True {
+    visibility: visible !important;
+}
+
 .product_img img{
     position: absolute;
     width: 100%;

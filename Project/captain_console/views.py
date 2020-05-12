@@ -10,18 +10,30 @@ def index(request, **kwargs):
     if 'search_filter' in request.GET:
         return search_page(request)
     if 'category' in kwargs:
-        product_ls = Product.objects.filter(category=kwargs['category'])
+        products = Product.objects.filter(category=kwargs['category'])
         page = 'captain/product_category.html'
     else:
-        product_ls = {'consoles': Product.objects.filter(category=1),
-                      'games': Product.objects.filter(category=2),
-                      'accessories': Product.objects.filter(category=3),
-                      'posters': Product.objects.filter(category=4)
-                      }
-        print (product_ls)
+        products = {
+                    'consoles': Product.objects.filter(category=1),
+                    'games': Product.objects.filter(category=2),
+                    'accessories': Product.objects.filter(category=3),
+                    'posters': Product.objects.filter(category=4)
+                    }
         page = 'captain/index.html'
-    context = {'products': product_ls}
+    context = {'products': products}
     return render(request, page, context)
+
+def deals(request):
+    products = {
+                'consoles': Product.objects.filter(category=1, on_sale=True),
+                'games': Product.objects.filter(category=2, on_sale=True),
+                'accessories': Product.objects.filter(category=3, on_sale=True),
+                'posters': Product.objects.filter(category=4, on_sale=True),
+                'other': Product.objects.filter(category=5, on_sale=True)
+                }
+    context = {'products': products}
+    return render(request, 'captain/index.html', context)
+
 
 def other(request, **kwargs):
     return render(request, 'captain/'+kwargs['site']+'.html')
