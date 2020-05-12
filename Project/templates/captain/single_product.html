@@ -9,7 +9,5 @@
         <div class="product-info product-name"> {{ product.name }}</div>
         <div class="product-info product-price"> {{product.getPrice }}</div>
     </a>
-    <form action="{% url 'update_cart' product.id %}" method="GET">
-        <button type="submit" class="btn btn-primary cart-button" action>Plunder</button>
-    </form>
+    <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button" action>Plunder</button>
 </div>
