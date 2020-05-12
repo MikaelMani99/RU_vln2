@@ -35,6 +35,7 @@ def update_cart(request):
     # fetch id of cart session, create a new one if there is none
     try:
         cart_id = request.session['id_of_cart']
+
     except:
         new_cart = Cart()
         new_cart.save()
@@ -43,14 +44,21 @@ def update_cart(request):
 
     # fetches the cart
     cart = Cart.objects.get(id=cart_id)
-
-
+    items = CartItem.objects.all().filter(cart = cart)
+    do_not_delete = []
     # product = Product.objects.get(id=id)
     for p in data:
         product = Product.objects.get(id = p['id'][1:])
         cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
         cart_item.quantity = p['amount']
         cart_item.save()
+        do_not_delete.append(int(p['id'][1:]))
+    print(do_not_delete)
+    # delete items that are not in cart
+    for item in items:
+        if item.product.id not in do_not_delete:
+            item.delete()
+
     
     total_of_cart = 0
     for item in cart.cartitem_set.all():
