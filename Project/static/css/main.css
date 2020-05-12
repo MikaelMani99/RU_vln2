@@ -88,15 +88,37 @@ Extra Content
 
 .container_centered {
     display: flex;
+    justify-content: center;
     margin-bottom: 0.5em;
     width: 100%;
+    border-bottom: 1px solid #e67e22;
+}
+
+.order-filter-name {
+    color: #e67e22;
+    text-shadow: 2px 2px #000000;
+}
+
+.order .filter {
+    align-items: center;
+}
+
+.filter {
+    padding-right: 4em;
+}
+
+.filter-dropdown {
+    margin-bottom: 1em;
+}
+
+.apply {
+    padding-left: 2em;
+    margin: auto;
 }
 
 .order_filter {
     font-family:  'Press Start 2P', cursive;;
     font-size: 1.25em;
-    display: flex;
-    align-items: center;
     padding-right: 0.8em;
 }
 
