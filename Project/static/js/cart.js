@@ -32,7 +32,19 @@
         if(product_inedx === -1){
             cart.push({id:product, amount:amount});
         }else{
-            cart[product_inedx].amount += amount
+            cart[product_inedx].amount += amount;
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartInput();
+        updateCartSize();
+    }
+    function removeFromCart(product, amount = 1){
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        // find the index, if it's not in cart returns -1
+        product_inedx = cart.findIndex((obj => obj.id == product));
+        cart[product_inedx].amount -= amount;
+        if(cart[product_inedx].amount <= 0){
+            cart.splice(product_inedx, 1);
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartInput();
@@ -53,10 +65,25 @@
             fetch('/chest/update', {method: 'POST', body: cart});
         }
     }
+    function addAmountClick(){
+        let add = document.getElementsByClassName("inc");
+        let rem = document.getElementsByClassName("dec");
 
+        for(let i=0; i < add.length; i++){
+            add[i].onclick = function(){
+                addToCart("p" + add[i].id.substring(1));
+            }
+            rem[i].onclick = function(){
+                removeFromCart("p" + rem[i].id.substring(1));
+            }
+        }
+    }
+    
+    addAmountClick();
     chestClicked();
     updateCartSize();
     initCart();
     addOnClick();
     updateCartInput();
 })();
+

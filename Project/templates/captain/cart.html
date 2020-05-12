@@ -7,11 +7,11 @@
         <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
         <div class="product-name cart-product-name">{{ item.product }}</div>
         <div class="product-qty">
-            <div class="inc qty-button">+</div>
+            <div id="a{{item.product.id}}" class="inc qty-button">+</div>
             <form method="POST">
                 <input type="number" class="cart-product-qty" placeholder="nr" min="0" value="{{ item.quantity }}">
             </form>
-            <div class="dec qty-button">-</div>
+            <div id="r{{item.product.id}}" class="dec qty-button">-</div>
         </div>
         <div class="product-price">{{ item.product.getPrice }}</div>
         <a href='{% url "update_cart" %}'>Remove</a>
