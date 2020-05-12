@@ -1,14 +1,14 @@
 {% load static %}
-
 <div class="product">
     <a href="/product/{{ product.id }}">
         <div class="product_img">
             <img src="{{ product.productimage_set.first.image }}">
         </div>
-        <h4> {{ product.name }}</h4>
-        <p> {{product.getPrice }}</p>
+        <div class="product-info product-category"> {{ product.category }}</div>
+        <div class="product-info product-name"> {{ product.name }}</div>
+        <div class="product-info product-price"> {{product.getPrice }}</div>
     </a>
     <form action="{% url 'update_cart' product.id %}" method="GET">
-        <button type="submit" class="btn btn-primary" action>plunder</button>
+        <button type="submit" class="btn btn-primary cart-button" action>Plunder</button>
     </form>
 </div>
