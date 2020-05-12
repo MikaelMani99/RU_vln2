@@ -17,3 +17,39 @@
   }
   highlightNavbar();
 })();
+
+$(document).ready(function () {
+  $('.apply').on('click', function (e) {
+    e.preventDefault();
+    let searchParam = $('#search-box').val();
+    console.log(searchParam);
+    $.ajax({
+      url: '/search/?search_filter=' + searchParam,
+      type: 'POST',
+      data: $('form').serialize(),
+      dataType: 'json',
+      success: function (data) {
+        console.log(data);
+        let newHTML = $.map(data['products'], function (p) {
+          return `<div class="product">
+                        <a href="/product/${ p.id }">
+                            <div class="product_img">
+                                <img src="${ p.firstImage }">
+                            </div>
+                            <h4> ${ p.name }</h4>
+                            <p> ${ p.price }</p>
+                        </a>
+                        <button type="button" class="btn btn-primary">plunder</button>
+                  </div>`
+            return
+          });
+          $('.products').html(newHTML.join(''));
+      },
+      error: function (xhr, status, error) {
+        // TODO: Show toastr
+        console.error(error);
+      }
+
+    });
+  });
+});
