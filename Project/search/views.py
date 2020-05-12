@@ -28,7 +28,11 @@ def search_page(request):
             'id': p.id,
             'name': p.name,
             'price': p.getPrice(),
-            'firstImage': p.productimage_set.first().image
+            'firstImage': p.productimage_set.first().image,
+            'on_sale': str(p.on_sale),
+            'discount': p.getDiscount(),
+            'discount_price': p.getDiscountPrice(),
+            'category': p.category.name
         } for p in products
         ]
         return JsonResponse({'products': product})
