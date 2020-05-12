@@ -28,13 +28,16 @@ class Product(models.Model):
     discount = models.IntegerField(default=0)
 
     def getPrice(self):
-        if self.on_sale:
-            sale_price = round(((self.price / 100) * (1 - (self.discount / 100))), 2)
-            return "NOW: ${}".format(sale_price)
         return "${}".format(self.price / 100)
 
     def getDiscount(self):
         return "{}%".format(self.discount)
+
+    def getDiscountPrice(self):
+        if self.on_sale:
+            sale_price = round(((self.price / 100) * (1 - (self.discount / 100))), 2)
+            return "${}".format(sale_price)
+        return self.getPrice()
 
     def __str__(self):
         return self.name

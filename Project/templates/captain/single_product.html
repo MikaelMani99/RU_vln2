@@ -3,11 +3,12 @@
     <a href="/product/{{ product.id }}">
         <div class="product_img">
             <img src="{{ product.productimage_set.first.image }}">
-            <div class="discountRibbon {{ product.on_sale }}">Discount {{ product.getDiscount }}</div>
+            <div class="discountRibbon banner{{ product.on_sale }}">Discount {{ product.getDiscount }}</div>
         </div>
         <div class="product-info product-category"> {{ product.category }}</div>
         <div class="product-info product-name"> {{ product.name }}</div>
-        <div class="product-info product-price"> {{product.getPrice }}</div>
+        <div class="product-info product-price"> <p class="sale-{{ product.on_sale }}">{{ product.getPrice }}</p></div>
+        <div class="product-info product-price display-sale-price-{{ product.on_sale }}"> {{product.getDiscountPrice }}</div>
     </a>
     <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button" action>Plunder</button>
 </div>

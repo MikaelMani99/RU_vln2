@@ -226,8 +226,16 @@ h2{
     transform: rotate(35deg);
 }
 
-.True {
-    visibility: visible !important;
+.bannerTrue {
+    visibility: visible;
+}
+
+.sale-True {
+    color: #9C1B21;
+    text-decoration: line-through;
+}
+.display-sale-price-False {
+    display: none;
 }
 
 .product_img img{
