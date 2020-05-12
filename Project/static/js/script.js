@@ -21,10 +21,9 @@
 $(document).ready(function () {
   $('.apply').on('click', function (e) {
     e.preventDefault();
-    let searchParam = $('#search-box').val();
-    console.log(searchParam);
+    let params = document.location.search;
     $.ajax({
-      url: '/search/?search_filter=' + searchParam,
+      url: '/search/'+params,
       type: 'POST',
       data: $('form').serialize(),
       dataType: 'json',
@@ -41,7 +40,6 @@ $(document).ready(function () {
                         </a>
                         <button type="button" class="btn btn-primary">plunder</button>
                   </div>`
-            return
           });
           $('.products').html(newHTML.join(''));
       },

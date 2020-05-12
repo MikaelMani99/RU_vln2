@@ -16,6 +16,7 @@ class OrderFilter(forms.Form):
     filter_type_choices = [(str(t.id), t.name) for t in types]
     filter_type_choices.insert(0, ('0', 'Choose type...'))
 
+    # SEARCH = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'size': '40'}))
     ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER))
     FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
     FILTER_TYPE = forms.CharField(widget=forms.Select(choices=filter_type_choices))
@@ -25,3 +26,7 @@ class OrderFilter(forms.Form):
             'all': ('main.css',)
         }
         # js = ('animations.js', 'actions.js')
+
+    # def __init__(self, *args, **kwargs):
+    #     super(OrderFilter, self).__init__(*args, **kwargs)
+    #     self.fields["SEARCH"].initial = "Some initial value"
