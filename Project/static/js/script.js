@@ -40,6 +40,24 @@
 
 })();
 
+// (function () {
+//   // Adds discount banner class if it should be there
+//   function hideDiscountBanner(){
+//     try{
+//         var banners = document.getElementsByClassName("discountRibbon");
+//         for(var i = 0; i < banners.length; i++){
+//             // if (banners[i].classList.contains('True')){
+//             //   banners[i].classList.add("addDiscountBanner");
+//             //
+//             }
+//         }
+//       }catch{
+//         console.log("nothing to add");
+//       }
+//     }
+//   hideDiscountBanner();
+// })();
+
 $(document).ready(function () {
   $('.apply').on('click', function (e) {
     e.preventDefault();
@@ -50,7 +68,6 @@ $(document).ready(function () {
       data: $('form').serialize(),
       dataType: 'json',
       success: function (data) {
-        console.log(data);
         let newHTML = $.map(data['products'], function (p) {
           return `<div class="product">
                         <a href="/product/${ p.id }">

@@ -19,11 +19,11 @@
           <li id="games"><a href="{% url 'category_games' %}">Games</a></li>
           <li id="accessories"><a href="{% url 'category_accessories' %}">Accessories</a></li>
           <li class="dropdown">
-            <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
+            <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{% url 'category_posters' %}">Posters</a></li>
-              <li><a href="{% url 'captain_console_index' %}">Action</a></li>
-              <li><a href="{% url 'captain_console_index' %}">Another action</a></li>
+              <li><a href="{% url 'category_other' %}">Other</a></li>
+              <li><a href="{% url 'deals' %}">DEALS!!!</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="{% url 'about_us' %}">About Us</a></li>
               <li role="separator" class="divider"></li>
@@ -56,12 +56,13 @@
 
           <div class="input-group">
             <input type="text" class="form-control search-input" placeholder="Search" name="search_filter">
-          <div class="input-group-btn">
-          <button class="btn btn-default search-button" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-            <!--<img src="{% static 'images/spyglass.png' %}">-->
-          </button>
-        </div>
+            <div class="input-group-btn">
+              <button class="btn btn-default search-button" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+                <!--<img src="{% static 'images/spyglass.png' %}">-->
+              </button>
+            </div>
+          </div>
           <!--<button type="submit" class="btn btn-default">Submit</button>-->
 
         </form>
