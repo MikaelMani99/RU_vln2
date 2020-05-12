@@ -18,5 +18,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    #path('', views.get_cart, name="cart_page"),
+    path('', views.contact_info, name="contact_info_page")
 ]

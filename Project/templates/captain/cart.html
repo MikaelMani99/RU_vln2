@@ -1,36 +1,18 @@
 {% extends 'base.html'%}
 {% block content%}
-<style>
-    table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
-<h1>Cart</h1>
-<table>
-    <tr>
-        <th>Product</th><th>Price</th><th>Quantity</th>
-    </tr>
+<div class="cart">
+    <h1>Cart</h1>
     {% for item in cart.cartitem_set.all %}
-    <tr>
-        <td>{{ item.product }}</td>
-        <td>{{ item.product.getPrice }}</td>
-        <td>{{ item.quantity }}</td>
-        <td><a href='{% url "update_cart" item.product.id %}?qty=0'>Remove</a></td>
-    </tr>
+    <div class="cart_row cart_item">
+        <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
+        <div class="product-name">{{ item.product }}</div>
+        <div>{{ item.product.getPrice }}</div>
+        <div>{{ item.quantity }} <a href='{% url "update_cart" item.product.id %}?qty=0'>Remove</a></div>
+    </div>
     {% endfor %}
-    <h3>Total: {{ cart.getTotalPrice }}</h3>
-</table>
+    <div class="cart_total">
+        <h3>Total: {{ cart.getTotalPrice }}</h3>
+        <a href="../checkout/">Proceed to checkout</a>
+    </div>
+</div>
 {% endblock %}
