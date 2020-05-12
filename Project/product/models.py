@@ -29,8 +29,8 @@ class Product(models.Model):
 
     def getPrice(self):
         if self.on_sale:
-            sale_price = round(((self.price / 100) * (self.discount / 100)), 2)
-            return "BEFORE: ${} NOW: ${}".format((self.price / 100), sale_price)
+            sale_price = round(((self.price / 100) * (1 - (self.discount / 100))), 2)
+            return "NOW: ${}".format(sale_price)
         return "${}".format(self.price / 100)
 
     def getDiscount(self):
