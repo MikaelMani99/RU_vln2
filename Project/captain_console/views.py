@@ -11,8 +11,17 @@ def index(request, **kwargs):
         return search_page(request)
     if 'category' in kwargs:
         product_ls = Product.objects.filter(category=kwargs['category'])
+        page = 'captain/product_category.html'
     else:
-        product_ls = list(Product.objects.all())
+        product_ls = {'consoles': Product.objects.filter(category=1),
+                      'games': Product.objects.filter(category=2),
+                      'accessories': Product.objects.filter(category=3),
+                      'posters': Product.objects.filter(category=4)
+                      }
+        print (product_ls)
+        page = 'captain/index.html'
     context = {'products': product_ls}
-    return render(request, 'captain/index.html', context)
+    return render(request, page, context)
 
+def other(request, **kwargs):
+    return render(request, 'captain/'+kwargs['site']+'.html')

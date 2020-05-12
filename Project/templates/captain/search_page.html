@@ -1,4 +1,4 @@
-{% extends 'captain/index.html'%}
+{% extends 'captain/product_category.html'%}
 {% load static %}
 {% block extra %}
 <div class="container_centered">
@@ -22,7 +22,7 @@
                 {% csrf_token %}
                 {{form.FILTER_TYPE}}
             </div>
-            <button type="submit" class="btn btn-default">Apply</button>
+            <button type="button" class="btn btn-default apply">Apply</button>
         </form>
     </div>
 </div>

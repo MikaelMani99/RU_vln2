@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+{% block extra %}
+{% endblock %}
+{% block content%}
+    <div class="products">
+        {% for product in products %}
+        {% include 'captain/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
+{% endblock %}

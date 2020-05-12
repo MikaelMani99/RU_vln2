@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% block content%}
+<form>
+    <input type="text" placeholder="Fullname"/><br>
+    <input type="text" placeholder="Address"/><br>
+    <input type="text" placeholder="City"/><br>
+    <input type="text" placeholder="Country"/><br>
+    <input type="text" placeholder="Postal Code"/><br>
+    <input type="submit" value="Next"/>
+</form>
+<style>
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<h1>Cart</h1>
+<table>
+    <tr>
+        <th>Product</th><th>Price</th><th>Quantity</th>
+    </tr>
+    {% for item in cart.cartitem_set.all %}
+    <tr>
+        <td>{{ item.product }}</td>
+        <td>{{ item.product.getPrice }}</td>
+        <td>{{ item.quantity }}</td>
+    </tr>
+    {% endfor %}
+    <h3>Total: {{ cart.getTotalPrice }}</h3>
+</table>
+{% endblock %}
