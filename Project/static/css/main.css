@@ -88,46 +88,36 @@ Extra Content
 
 .container_centered {
     display: flex;
-    justify-content: space-evenly;
     margin-bottom: 0.5em;
     width: 100%;
 }
 
-p {
-    text-align: center;
-}
-
 .order_filter {
+    font-family:  'Press Start 2P', cursive;;
+    font-size: 1.25em;
     display: flex;
     align-items: center;
-}
-
-.orange_border {
-    border: 0.2em solid #e67e22;
-}
-
-.orange_box {
-    background-color: #e67e22;
+    padding-right: 0.8em;
 }
 
 .form-inline {
     display: flex;
 }
 
-button {
+.order_filter button {
     height: fit-content;
 }
 
-ul li{
+.order_filter ul li{
     display: inline;
     list-style: none;
 }
 
-ul {
+.order_filter ul {
     padding: 0;
 }
 
-li {
+.order_filter li {
     padding: 0.4em;
 }
 
@@ -209,7 +199,7 @@ h2{
 .discountRibbon {
     visibility: hidden;
     height: 2em;
-    width: 15em;
+    width: 18em;
     background-color: #9C1B21;
     position: absolute;
     top: 1em;
@@ -328,7 +318,11 @@ Footer
 }
 .navigation{
     width: 33%;
-
+}
+.navigation a{
+    font-family: 'Press Start 2P', cursive;
+    color: black !important;
+    text-decoration: none;
 }
 .socials{
     width: 33%;
