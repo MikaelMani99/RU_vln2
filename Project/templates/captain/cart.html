@@ -7,7 +7,7 @@
         <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
         <div class="product-name">{{ item.product }}</div>
         <div>{{ item.product.getPrice }}</div>
-        <div>{{ item.quantity }} <a href='{% url "update_cart" item.product.id %}?qty=0'>Remove</a></div>
+        <div>{{ item.quantity }}</div>
     </div>
     {% endfor %}
     <div class="cart_total">

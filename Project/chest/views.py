@@ -30,7 +30,7 @@ def update_cart(request):
     decoded_data_from_url = urllib.parse.unquote(data_in_url_form)
     location_of_cart = decoded_data_from_url.find("cart_storage") + 13
     data = json.loads(decoded_data_from_url[location_of_cart:-1])
-            
+    print(data)
     
     # fetch id of cart session, create a new one if there is none
     try:
