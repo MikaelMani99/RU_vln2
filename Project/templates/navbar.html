@@ -36,8 +36,13 @@
           <li id="cart"><a href="{% url 'cart_page' %}">Cart ({% if not request.session.total_items %}0{% else %}{{ request.session.total_items }}{% endif %}) <img src="{% static 'images/chest.svg' %}"></a></li>
 
           {% if user.is_authenticated %}
-            <li id="profile"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <!--<li id="profile"><a href="{% url 'category_consoles' %}">Profile <img src="{% static 'images/pirate.svg' %}"></a></li>-->
+            <li>
+              <a href="{% url 'captain_console_index' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <img src="{% static 'images/pirate.svg' %}"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'captain_console_index' %}">Logout</a></li>
+              </ul>
+            </li>
           {% else %}
             <li><a href="{% url 'login' %}">Login <img src="{% static 'images/pirate.svg' %}"></a></li>
           {% endif %}
