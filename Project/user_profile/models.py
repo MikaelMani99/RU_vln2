@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class User(models.Model):
@@ -20,7 +21,8 @@ class UserImage(models.Model):
 
 class History(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    time_stamp = models.DateTimeField()
+    search = models.CharField(max_length=255, default="")
+    time_stamp = models.DateTimeField(default=timezone.now())
 
     def __str__(self):
         return self.user_id + ": " + self.time_stamp

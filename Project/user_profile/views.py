@@ -19,3 +19,9 @@ def register(request):
         'form': UserCreationForm()
     })
 
+def history(request, id):
+    search_history = list(History.objects.filter(user_id_id=id))
+    return render(request, 'user_profile/history.html', {
+        'history': search_history
+    })
+
