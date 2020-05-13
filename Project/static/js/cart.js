@@ -27,6 +27,15 @@
     }
     function addToCart(product, amount = 1){
         let cart = JSON.parse(localStorage.getItem("cart"));
+        // get the amount
+        try{
+            amount = parseInt(document.getElementById("q"+product.substring(1)).value);
+            if(amount === NaN){
+                return 
+            }
+        }catch{
+            amount = 1;
+        }
         // find the index, if it's not in cart returns -1
         product_inedx = cart.findIndex((obj => obj.id == product));
         if(product_inedx === -1){
