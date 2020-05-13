@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1>Contact Info</h1>
+{{ order.full_name }}
+{{ order.address }}
+{{ order.city }}
+{{ order.country }}
+{{ order.postal_code }}
+
+<h1>Card Info</h1>
+<div id="card_info"></div>
+<h1>Cart</h1>
+{% for item in cart.cartitem_set.all %}
+  <div class="cart_row cart_item">
+      <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
+      <div class="product-name cart-product-name">{{ item.product }}</div>
+      <div class="product-price">{{ item.product.getPrice }}</div>
+      <p> amount = {{ item.quantity }}</p>
+      <p> total = {{ item.getTotalPrice }} </p>
+  </div>
+{% endfor %}
+{% endblock %}

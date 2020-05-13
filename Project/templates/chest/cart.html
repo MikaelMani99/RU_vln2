@@ -19,7 +19,7 @@
     {% endfor %}
     <div class="cart_total">
         <h3>Total: {{ cart.getTotalPrice }}</h3>
-        <a href="../checkout/">Proceed to checkout</a>
+        <a href="{% url 'contact_info_page' %}">Proceed to checkout</a>
     </div>
 </div>
 {% endblock %}

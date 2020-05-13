@@ -21,7 +21,6 @@ def get_cart(request):
 
     return render(request, 'chest/cart.html', cart_status)
 
-
 def update_cart(request):
     request.session.set_expiry(172800)
     
@@ -69,3 +68,4 @@ def update_cart(request):
     cart.save()
     
     return HttpResponseRedirect(reverse("cart_page"))
+
