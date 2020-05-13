@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content%}
+    <div class="history">
+        <h2>Search history</h2>
+        {% for h in history %}
+            {{ h.time_stamp }}
+            {{ h.search }}
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}
