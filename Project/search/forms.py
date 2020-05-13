@@ -10,11 +10,11 @@ ORDER = [
 class OrderFilter(forms.Form):
     categories = ProductCategory.objects.all()
     filter_choices = [(str(c.id), c.name) for c in categories]
-    filter_choices.insert(0, ('0', 'Choose category...'))
+    filter_choices.insert(0, ('0', 'Category'))
 
     types = ProductType.objects.all()
     filter_type_choices = [(str(t.id), t.name) for t in types]
-    filter_type_choices.insert(0, ('0', 'Choose type...'))
+    filter_type_choices.insert(0, ('0', 'Type'))
     ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER), initial=('name', 'Name'))
     FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
     FILTER_TYPE = forms.CharField(widget=forms.Select(choices=filter_type_choices))

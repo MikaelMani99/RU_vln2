@@ -3,14 +3,26 @@
 {% block extra %}
     <div class="container_centered">
         <form class="form-inline" method='POST' action="" enctype='multipart/form-data'>
-            {% csrf_token %}
-            {{form.ORDER}}
-
-            {% csrf_token %}
-            {{form.FILTER}}
-            
-            {% csrf_token %}
-            {{form.FILTER_TYPE}}
+            <div class="order_field">
+                <div class="order-filter-name">
+                    Order by:
+                </div>
+                {% csrf_token %}
+                {{form.ORDER}}
+            </div>
+            <div class="filter_field">
+                <div class="order-filter-name">
+                    Filters:
+                </div>
+                <div class="filter_select">
+                {% csrf_token %}
+                {{form.FILTER}}
+                </div>
+                <div class="filter_type_select">
+                {% csrf_token %}
+                {{form.FILTER_TYPE}}
+                </div>
+            </div>
             <button type="button" id="apply-button" class="btn btn-default">Apply</button>
         </form>
     </div>

@@ -90,57 +90,22 @@ Extra Content
     display: flex;
     justify-content: center;
     margin-bottom: 0.5em;
-    width: 100%;
-    border-bottom: 1px solid #e67e22;
-}
-
-.order-filter-name {
-    color: #e67e22;
-    text-shadow: 2px 2px #000000;
-}
-
-.order .filter {
-    align-items: center;
-}
-
-.filter {
-    padding-right: 4em;
-}
-
-.filter-dropdown {
-    margin-bottom: 1em;
-}
-
-.apply {
-    padding-left: 2em;
-    margin: auto;
-}
-
-.order_filter {
-    font-family:  'Press Start 2P', cursive;;
-    font-size: 1.25em;
-    padding-right: 0.8em;
+    width: 88%;
 }
 
 .form-inline {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.order_filter button {
-    height: fit-content;
-}
-
-.order_filter ul li{
-    display: inline;
-    list-style: none;
-}
-
-.order_filter ul {
-    padding: 0;
-}
-
-.order_filter li {
-    padding: 0.4em;
+.form-inline .btn {
+    background-image: none;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 0;
+    font-family:  'Press Start 2P', cursive;
+    color: white;
 }
 
 .cart_and_profile{
@@ -154,6 +119,82 @@ Extra Content
     padding-top: 10px !important;
 }
 
+.order-filter-name {
+    font-family:  'Press Start 2P', cursive;
+    background-color: #e67e22;
+    color: white;
+    padding: 0.55em;
+}
+
+.order_field {
+    display: flex;
+    align-items: center;
+        border: 1px solid #e67e22;
+}
+
+.order_field ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.order_field li {
+    font-family:  'Press Start 2P', cursive;
+    color: #e67e22;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.order_field li label {
+    font-weight: normal;
+    margin: 0;
+}
+
+
+.filter_field {
+    display: flex;
+    position: relative;
+    align-items: center;
+    border: 1px solid #e67e22;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none!important;
+}
+
+.filter_select:after {
+    content: '\f078';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #e67e22;
+    right: 178px;
+    top: 8px;
+    position: absolute;
+}
+.filter_type_select:after {
+    content: '\f078';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #e67e22;
+    right: 8px;
+    top: 8px;
+    position: absolute;
+}
+
+.filter_field select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 100%;
+    padding: 0.5em;
+    font-family:  'Press Start 2P', cursive;
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
 /*
 ========================================================
 Main Content
@@ -163,6 +204,7 @@ Main Content
 .product a { /* Take colour off product names that are links */
     color: black !important;
     text-decoration: none;
+    height: 90%;
 }
 
 .products {
@@ -244,6 +286,7 @@ h2{
 
 .sale-True {
     color: #9C1B21;
+    font-size: 0.7em;
     text-decoration: line-through;
 }
 .display-sale-price-False {
@@ -299,7 +342,6 @@ h2{
     background-image: none;
     font-family: 'Press Start 2P', cursive;
     width: 50%;
-    float: right !important;
 }
 .cart-button:hover {
     border: 1px  #e67e22 solid;
