@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-# adding the modules needed
 from product.models import Product, ProductImage,  ProductCategory
-from user_profile.models import User
 from search.views import search_page
 from .forms import ContactUsForm
 from django.core.mail import EmailMessage

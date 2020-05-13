@@ -16,7 +16,7 @@
     }
   }
   highlightNavbar();
-
+  
 
   $(".qty-button").on("click", function() {
 
@@ -37,7 +37,14 @@
     $button.parent().find("input").val(newVal);
 
   });
-
+  // clear the localstorage if logged out
+  function clearLocalStorage(){
+    let logout = document.getElementById("logout");
+    logout.onclick = function(){
+      window.localStorage.clear();
+    }
+  }
+  clearLocalStorage();
 })();
 
 $(document).ready(function () {

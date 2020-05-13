@@ -21,6 +21,7 @@ from . import views
 urlpatterns = [
     path('<int:id>', views.get_profile_by_id, name="profile_page"),
     path('register', views.register, name="register"),
-    path('login', LoginView.as_view(template_name='captain/login.html'), name='login'),  # Using built in view
-    path('logout', LogoutView.as_view(next_page='login'), name='logout')                   # Using built in view
+    path('login', LoginView.as_view(template_name='user_profile/login.html'), name='login'),  # Using built in view
+    path('logout', LogoutView.as_view(next_page='login'), name='logout'),                # Using built in view
+    path('history', views.history, name="search_history")
 ]

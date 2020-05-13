@@ -14,5 +14,10 @@ class Order(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    full_name = models.CharField(max_length=255, blank=True)
+    city = models.CharField(max_length=255, blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    postal_code = models.CharField(max_length=255, blank=True)
+    country = models.CharField(max_length=255, blank=True)
     def __unicode__(self):
         return self.order_id

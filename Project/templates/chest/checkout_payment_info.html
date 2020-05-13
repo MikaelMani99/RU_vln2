@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content%}
+<form id="payment_form" action="{% url 'review_info_page' %}" method="POST">{% csrf_token %}
+    <input id="payment_name" type="text" placeholder="Card Holder" required/>
+    <input id="payment_card_nr" type="text" placeholder="Card Number" required/>
+    <input id="payment_cvc" type="text" placeholder="CVC" required/>
+    <input id="payment_exp_date" type="text" placeholder="MM/YY" required/>
+    <input type="submit" value="Next"/>
+</form>
+<h1>Cart</h1>
+{% for item in cart.cartitem_set.all %}
+  <div class="cart_row cart_item">
+      <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
+      <div class="product-name cart-product-name">{{ item.product }}</div>
+      <div class="product-price">{{ item.product.getPrice }}</div>
+      <p> amount = {{ item.quantity }}</p>
+      <p> total = {{ item.getTotalPrice }} </p>
+  </div>
+{% endfor %}
+{% endblock %}
