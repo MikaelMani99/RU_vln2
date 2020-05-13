@@ -4,14 +4,16 @@
     <h1>Cart</h1>
     {% for item in cart.cartitem_set.all %}
     <div class="cart_row cart_item">
-        <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
-        <div class="product-name cart-product-name">{{ item.product }}</div>
+        <a href='../product/{{item.product.id}}' class="cart-product-detail">
+            <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
+            <div class="product-name cart-product-name">{{ item.product }}</div>
+        </a>
         <div class="product-qty">
-            <div id="a{{item.product.id}}" class="inc qty-button">+</div>
+            <div id="r{{item.product.id}}" class="dec qty-button">-</div>
             <form method="POST">
                 <input type="number" class="cart-product-qty" placeholder="nr" min="0" value="{{ item.quantity }}">
             </form>
-            <div id="r{{item.product.id}}" class="dec qty-button">-</div>
+            <div id="a{{item.product.id}}" class="inc qty-button">+</div>
         </div>
         <div class="product-price">{{ item.product.getPrice }}</div>
         <a href='{% url "update_cart" %}'>Remove</a>

@@ -4,6 +4,31 @@ Fonts
 ========================================================
 */ 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*
+========================================================
+Default values
+========================================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*
+Used to make the footer stick to the bottom of the page
+God bless flexbox
+ */
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 /*
 ========================================================
 Header
@@ -64,6 +89,22 @@ Navigation
 .navbar-default .navbar-nav .active {
     color: white;
 }
+
+.nav-cart-btn {
+    background-image: none;
+    background-color:  #2980b9;
+    border: none;
+    color: white;
+    text-shadow: 2px 2px black;
+    padding: 11px 0 11px 0;
+}
+.nav-cart-btn:hover, .nav-cart-btn:focus, .nav-cart-btn:active {
+    color: #e67e22;
+    background-color: #2980b9 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .search-input {
     border: 1px #e67e22 solid;
 }
@@ -79,7 +120,14 @@ Navigation
     text-shadow: none;
 }
 
+.search-button:hover {
+    border: 1px #e67e22 solid;
+    background-color: white;
+}
 
+.search-button:hover .glyphicon {
+    color: #e67e22;
+}
 /*
 ========================================================
 Extra Content
@@ -215,6 +263,7 @@ Main Content
 }
 .container{
     display: flex;
+    flex: 1;
     flex-flow: row wrap;
     justify-content: center;
     padding-left: 5em;
@@ -370,6 +419,7 @@ Footer
     width: 100%;
     background-color: #2980b9;
     display: flex;
+    margin-top: 2em;
 }
 .footer .container{
     display: flex;
@@ -477,15 +527,22 @@ Cart
 .product-img {
     display: flex;
     position: relative;
-    width: 15%;
+    width: 35%;
     height: 100%;
     padding: 1em;
     object-fit: scale-down;
     object-position: center;
 }
 
+.cart-product-detail {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    text-decoration: none !important;
+}
+
 .cart-product-name {
-    width: 30%;
+    width: 65%;
     font-size: 2em;
     text-shadow: 2px 2px black;
 }
@@ -501,11 +558,16 @@ Cart
 .cart-product-qty {
     width: 3em;
     font-size:1em;
+    border-width: 1px 0 1px 0;
+    border-color: grey;
+    border-style: solid;
+    text-align: center;
 }
 
 .qty-button {
     display: flex;
     cursor: pointer;
+    border: 1px solid grey;
 }
 
 .product-price {
@@ -513,4 +575,74 @@ Cart
     font-family: 'Press Start 2P', cursive;
     color: black;
     font-size: 2em;
+}
+
+/*
+========================================================
+Product Detail
+========================================================
+*/
+.product_detail_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.product_detail_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 45%;
+    margin-left: 5%;
+}
+
+.product_image_container {
+    flex: 1 50%;
+    position: relative;
+    -webkit-box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
+    box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
+}
+
+.product-detail-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: #e67e22;
+    text-shadow: 2px 2px black;
+}
+
+.product-detail-category {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.product-detail-price {
+    font-family: 'Press Start 2P', cursive;
+    margin: 1em 0 1em 0;
+    font-size: 2em;
+}
+
+.product-detail-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    object-position: center;
+}
+.product-qty-plunder-wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.detail-qty {
+    width: 20%;
+}
+
+.detail-button {
+    width: 25%;
+    margin-left: 2em;
+    border: 0;
+    border-radius: 0;
 }

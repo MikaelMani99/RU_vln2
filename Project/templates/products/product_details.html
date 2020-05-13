@@ -1,13 +1,23 @@
 {% extends 'base.html'%}
 
 {% block content%}
-    <h1>{{ product.name }}</h1>
-    <p>{{ product.description}}</p>
-    <p>{{ product.category}}</p>
-    <p>{{ product.getPrice}}</p>
-    <form>
-        <input id="q{{product.id}}" name="qty" type="number" value="1" min="1" required/>
-        <input id="p{{product.id}}" value="Add to cart" class="btn-cart btn btn-default"/>
-    </form>
-    <img class="product_img" src="{{ product.productimage_set.first.image }}">
+<div class="product_detail_wrapper">
+    <div class="product_image_container">
+        <img class="product-detail-img" src="{{ product.productimage_set.first.image }}">
+    </div>
+    <div class="product_detail_container">
+        <div class="product-detail-name">{{ product.name }}</div>
+        <div class="product-detail-category">{{ product.category}}</div>
+        <div class="product-detail-price">{{ product.getPrice}}</div>
+        <div class="product-qty-plunder-wrapper">
+            <div class="product-qty detail-qty">
+                <div class="qty-button">-</div>
+                <input type="number" id="q{{ product.id }}" class="cart-product-qty" placeholder="1" min="1" value="1">
+                <div class="qty-button">+</div>
+            </div>
+            <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button detail-button" action>Plunder</button>
+        </div>
+        <div class="product-detail-description">{{ product.description}}</div>
+    </div>
+</div>
 {% endblock %}
