@@ -29,7 +29,8 @@ def contact_info(request):
     try:
         order = Order.objects.get(cart = cart_id)
     except:
-        order = Order(cart = cart_id)
+        order = Order()
+        order.cart_id = cart_id
         order.save()
     return render(request, 'chest/checkout_contact_info.html', {'cart': cart})
 
