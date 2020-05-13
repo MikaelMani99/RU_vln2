@@ -11,6 +11,9 @@
             
             {% csrf_token %}
             {{form.FILTER_TYPE}}
+
+            {% csrf_token %}
+            {{form.FILTER_DISCOUNT}}
             <button type="button" id="apply-button" class="btn btn-default">Apply</button>
         </form>
     </div>

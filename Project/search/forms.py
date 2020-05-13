@@ -7,6 +7,12 @@ ORDER = [
     ('amount', 'Amount')
     ]
 
+DISCOUNT = [
+    ('0', 'On sale or not?'),
+    ('True', 'On sale'),
+    ('False', 'Not on sale')
+]
+
 class OrderFilter(forms.Form):
     categories = ProductCategory.objects.all()
     filter_choices = [(str(c.id), c.name) for c in categories]
@@ -18,6 +24,7 @@ class OrderFilter(forms.Form):
     ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER), initial=('name', 'Name'))
     FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
     FILTER_TYPE = forms.CharField(widget=forms.Select(choices=filter_type_choices))
+    FILTER_DISCOUNT = forms.CharField(widget=forms.Select(choices=DISCOUNT))
 
     class Media:
         css = {
