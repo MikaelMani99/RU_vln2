@@ -1,13 +1,12 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 # Create your models here.
-class User(models.Model):
-    email = models.CharField(max_length=255)
+class Profile(models.Model):
+    user_id = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=30)
-    password = models.CharField(max_length=32)
-    full_name = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
@@ -15,14 +14,14 @@ class User(models.Model):
     def __str__(self):
         return self.full_name
 
-class UserImage(models.Model):
+class ProfileImage(models.Model):
     image = models.CharField(max_length=999)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class History(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     search = models.CharField(max_length=255, default="")
-    time_stamp = models.DateTimeField(default=timezone.now())
+    time_stamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user_id + ": " + self.time_stamp
