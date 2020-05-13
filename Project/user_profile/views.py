@@ -5,7 +5,7 @@ from user_profile.models import User, UserImage, History
 # Create your views here.
 def get_profile_by_id(request, id):
 
-    return render(request, 'captain/profile.html', {
+    return render(request, 'user_profile/profile.html', {
         'user': get_object_or_404(User, pk=id)
     })
 
@@ -15,7 +15,7 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('login')
-    return render(request, 'captain/register.html', {
+    return render(request, 'user_profile/register.html', {
         'form': UserCreationForm()
     })
 

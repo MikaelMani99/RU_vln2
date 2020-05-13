@@ -19,4 +19,4 @@ def contact_info(request):
     if created:
         new_order.order_id = str(time.time())
         new_order.save()
-    return render(request, 'captain/checkout_contact_info.html', {})
+    return render(request, 'chest/checkout_contact_info.html', {})

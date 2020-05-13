@@ -14,7 +14,7 @@ def index(request, **kwargs):
         return search_page(request)
     if 'category' in kwargs:
         products = Product.objects.filter(category=kwargs['category'])
-        page = 'captain/product_category.html'
+        page = 'products/product_category.html'
     else:
         products = {
                     'consoles': Product.objects.filter(category=1),

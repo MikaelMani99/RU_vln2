@@ -19,7 +19,7 @@ def get_cart(request):
         empty_message = "You cart is empty"
         cart_status = {"empty": True, "empty_message": empty_message}
 
-    return render(request, 'captain/cart.html', cart_status)
+    return render(request, 'chest/cart.html', cart_status)
 
 
 def update_cart(request):

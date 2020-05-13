@@ -5,31 +5,31 @@
     <div class="category-block">
     <div class="category-name">Consoles</div>
     {% for product in products.consoles %}
-    {% include 'captain/single_product.html' with product=product %}
+    {% include 'products/single_product.html' with product=product %}
     {% endfor %}
     </div>
     <div class="category-block">
     <div class="category-name">Games</div>
     {% for product in products.games %}
-    {% include 'captain/single_product.html' with product=product %}
+    {% include 'products/single_product.html' with product=product %}
     {% endfor %}
     </div>
     <div class="category-block">
     <div class="category-name">Accessories</div>
     {% for product in products.accessories %}
-    {% include 'captain/single_product.html' with product=product %}
+    {% include 'products/single_product.html' with product=product %}
     {% endfor %}
     </div>
     <div class="category-block">
     <div class="category-name">Posters</div>
     {% for product in products.posters %}
-    {% include 'captain/single_product.html' with product=product %}
+    {% include 'products/single_product.html' with product=product %}
     {% endfor %}
     </div>
     <div class="category-block">
     <div class="category-name">Other</div>
         {% for product in products.other %}
-        {% include 'captain/single_product.html' with product=product %}
+        {% include 'products/single_product.html' with product=product %}
         {% endfor %}
     </div>
 {% endblock %}
