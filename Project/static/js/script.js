@@ -55,11 +55,14 @@ $(document).ready(function () {
                         <a href="/product/${ p.id }">
                             <div class="product_img">
                                 <img src="${ p.firstImage }">
+                                <div class="discountRibbon banner${ p.on_sale }">Discount ${ p.discount }</div>
                             </div>
-                            <h4> ${ p.name }</h4>
-                            <p> ${ p.price }</p>
+                            <div class="product-info product-category"> ${ p.category }</div>
+                            <div class="product-info product-name"> ${ p.name }</div>
+                            <div class="product-info product-price"> <p class="sale-${ p.on_sale }">${ p.price }</p></div>             
+                            <div class="product-info product-price display-sale-price-${ p.on_sale }"> ${ p.discount_price }</div>
                         </a>
-                        <button type="button" class="btn btn-primary">plunder</button>
+                        <button id="p${ p.id }" type="submit" class="btn btn-primary btn-cart cart-button" action>Plunder</button>
                   </div>`
           });
           $('.products').html(newHTML.join(''));
