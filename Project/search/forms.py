@@ -15,10 +15,9 @@ class OrderFilter(forms.Form):
     types = ProductType.objects.all()
     filter_type_choices = [(str(t.id), t.name) for t in types]
     filter_type_choices.insert(0, ('0', 'Choose type...'))
-
-    ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER))
-    FILTER = forms.CharField(widget=forms.Select(attrs={'style': 'width:100%'}, choices=filter_choices))
-    FILTER_TYPE = forms.CharField(widget=forms.Select(attrs={'style': 'width:100%'}, choices=filter_type_choices))
+    ORDER = forms.CharField(widget=forms.RadioSelect(choices=ORDER), initial=('name', 'Name'))
+    FILTER = forms.CharField(widget=forms.Select(choices=filter_choices))
+    FILTER_TYPE = forms.CharField(widget=forms.Select(choices=filter_type_choices))
 
     class Media:
         css = {

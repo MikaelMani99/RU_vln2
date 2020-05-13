@@ -1,33 +1,17 @@
-{% extends 'captain/product_category.html'%}
+{% extends 'products/product_category.html'%}
 {% load static %}
 {% block extra %}
     <div class="container_centered">
         <form class="form-inline" method='POST' action="" enctype='multipart/form-data'>
-            <div class="order">
-                <div class="order_filter order-filter-name">
-                    <p>Order by:</p>
-                </div>
-                <div class="order_filter">
-                    {% csrf_token %}
-                    {{form.ORDER}}
-                </div>
-            </div>
-            <div class="filter">
-                <div class="order_filter order-filter-name">
-                    <p>Filter:</p>
-                </div>
-                <div class="order_filter filter-dropdown">
-                    {% csrf_token %}
-                    {{form.FILTER}}
-                </div>
-                <div class="order_filter filter-dropdown">
-                    {% csrf_token %}
-                    {{form.FILTER_TYPE}}
-                </div>
-            </div>
-            <div class="order_filter apply">
-                <button type="button" id="apply-button" class="btn btn-default">Apply</button>
-            </div>
+            {% csrf_token %}
+            {{form.ORDER}}
+
+            {% csrf_token %}
+            {{form.FILTER}}
+            
+            {% csrf_token %}
+            {{form.FILTER_TYPE}}
+            <button type="button" id="apply-button" class="btn btn-default">Apply</button>
         </form>
     </div>
 {% endblock %}
