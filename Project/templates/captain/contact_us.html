@@ -2,6 +2,11 @@
 {% load static %}
 {% block content %}
     <div class="container_text">
-
+        <h2>Contact Us!</h2>
+        <form role="form" action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
     </div>
 {% endblock %}

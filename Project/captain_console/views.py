@@ -5,6 +5,9 @@ from django.urls import reverse
 from product.models import Product, ProductImage,  ProductCategory
 from user_profile.models import User
 from search.views import search_page
+from .forms import ContactUsForm
+from django.core.mail import EmailMessage
+from django.template.loader import get_template
 
 def index(request, **kwargs):
     if 'search_filter' in request.GET:
@@ -37,3 +40,39 @@ def deals(request):
 
 def other(request, **kwargs):
     return render(request, 'captain/'+kwargs['site']+'.html')
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            # Get the form values
+            contact_name = request.POST.get('contact_name', '')
+            contact_email = request.POST.get('contact_email', '')
+            message = request.POST.get('message', '')
+
+            print('Name: ' + contact_name)
+
+            # Get template contact information
+            template = get_template('captain/email_message.txt')
+            context = {
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'message': message
+            }
+
+            # Put the contact information into the template
+            content = template.render(context)
+
+            # Create email with contact template and send it
+            email = EmailMessage(
+                'Captain Console has received a new contact form submission',
+                content,
+                'Your website' + '',
+                ['margretsk18@ru.is'],
+                headers = {'Reply-To': contact_email}
+            )
+            email.send()
+            return redirect('contact_us')
+
+    context = {'form': ContactUsForm()}
+    return render(request, 'captain/contact_us.html', context)

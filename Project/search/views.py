@@ -38,7 +38,7 @@ def search_page(request):
         return JsonResponse({'products': product})
     context = {
                 'products': products,
-                'form': form,
+                'form': OrderFilter(),
     }
     return render(request, 'captain/search_page.html', context)
 
