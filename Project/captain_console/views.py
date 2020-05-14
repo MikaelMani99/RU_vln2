@@ -18,7 +18,8 @@ def index(request, **kwargs):
                     'consoles': Product.objects.filter(category=1),
                     'games': Product.objects.filter(category=2),
                     'accessories': Product.objects.filter(category=3),
-                    'posters': Product.objects.filter(category=4)
+                    'posters': Product.objects.filter(category=4),
+                    'other': Product.objects.filter(category=5)
                     }
         page = 'captain/index.html'
     context = {'products': products}

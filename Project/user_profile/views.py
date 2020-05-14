@@ -8,6 +8,7 @@ from user_profile.forms.profile_form import ProfileForm
 # Create your views here.
 @login_required
 def get_profile_by_id(request):
+    print(request.user.profile.image)
     return render(request, 'user_profile/profile.html', {
         'user': request.user
     })
@@ -26,11 +27,10 @@ def register(request):
 def update_profile(request):
     profile = Profile.objects.filter(user_id=request.user.id).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=profile, data=request.POST)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user_id = request.user
-            print(request.FILES)
             profile.save()
             return redirect('profile_page')
     return render(request, 'user_profile/update_profile.html', {

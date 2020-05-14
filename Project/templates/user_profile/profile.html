@@ -3,7 +3,7 @@
 {% block content%}
 
    <div class="profile_card">
-        <img class="profile_picture" src="{{ user.profile.image }}" alt="Profile Picture">
+        <img class="profile_picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
         <div class="profile_name">
             {{ user.username }}
         </div>
