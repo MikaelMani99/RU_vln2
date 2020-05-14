@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm ######, UserChangeForm NEED LATER???
 from django.contrib.auth.decorators import login_required
 from user_profile.models import Profile, ProfileImage, History
+from user_profile.forms.profile_form import ProfileForm
+
 
 # Create your views here.
-def get_profile_by_id(request, id):
-
+@login_required
+def get_profile_by_id(request):
+    print(request.user.profile.image)
     return render(request, 'user_profile/profile.html', {
-        'user': get_object_or_404(User, pk=id)
+        'user': request.user
     })
 
 def register(request):
@@ -19,6 +22,21 @@ def register(request):
     return render(request, 'user_profile/register.html', {
         'form': UserCreationForm()
     })
+
+@login_required
+def update_profile(request):
+    profile = Profile.objects.filter(user_id=request.user.id).first()
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user_id = request.user
+            profile.save()
+            return redirect('profile_page')
+    return render(request, 'user_profile/update_profile.html', {
+        'form': ProfileForm(instance=profile)
+    })
+
 
 @login_required
 def history(request):

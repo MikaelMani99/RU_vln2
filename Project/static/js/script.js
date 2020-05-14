@@ -78,12 +78,17 @@
   });
   // clear the localstorage if logged out
   function clearLocalStorage(){
-    let logout = document.getElementById("logout");
-    logout.onclick = function(){
-      window.localStorage.clear();
+    try{
+      let logout = document.getElementById("logout");
+      logout.onclick = function(){
+        window.localStorage.clear();
+      }
+      clearLocalStorage();
+    }catch{
+      return
     }
   }
-  clearLocalStorage();
+    
 })();
 
 $(document).ready(function () {

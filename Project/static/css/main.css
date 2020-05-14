@@ -480,20 +480,23 @@ Profile
 .profile_name{
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     color: darkorange;
-    font-family: 'Press Start 2P';
     font-size: 1em;
 }
 
 .profile_picture{
     width: 100%;
-    height: 100%;
+    height: 66%;
     border: thick;
     border-radius: 4px;
     padding: 5px;
 }
 
 .profile_card{
-    width:200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 15em;
+    height: 24em;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -1025,4 +1028,9 @@ Search history
     font-size: 1.2em;
     color: #e67e22;
     border-bottom: 1px solid #e67e22;
+}
+.thank-you-page {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 20em;
 }

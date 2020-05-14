@@ -7,8 +7,8 @@
         </div>
         <div class="product-info product-category"> {{ product.category }}</div>
         <div class="product-info product-name"> {{ product.name }}</div>
-        <div class="product-info product-price display-sale-price-{{ product.on_sale }}"> {{product.getDiscountPrice }}</div>
-        <div class="product-info product-price"> <p class="sale-{{ product.on_sale }}">{{ product.getPrice }}</p></div>
+        <div class="product-info product-price display-sale-price-{{ product.on_sale }}"> {{product.getPrice }}</div>
+        <div class="product-info product-price"> <p class="sale-{{ product.on_sale }}">{{ product.getOriginalPrice }}</p></div>
     </a>
     <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button" action>Plunder</button>
 </div>

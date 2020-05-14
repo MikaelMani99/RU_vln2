@@ -24,7 +24,7 @@ class CartItem(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def getTotalPrice(self):
-        return "${}".format((int(self.quantity) * int(self.product.price))/100)
+        return "${}".format((int(self.quantity) * self.product.getPriceInt())/100)
 
     def __str__(self):
         try:
