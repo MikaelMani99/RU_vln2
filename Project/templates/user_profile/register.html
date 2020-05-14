@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Join us for free! </h1>
-    <form class="form form-horizontal" method="post">
+    <h1>Join us for free!</h1>
+    <form class="form form-horizontal" method="POST">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Sign up">

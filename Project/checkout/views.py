@@ -17,6 +17,7 @@ def read_data(data):
     return ret_dict
 
 def contact_info(request):
+    
     try:
         cart_id = request.session['id_of_cart']
         cart = Cart.objects.get(id=cart_id)
@@ -24,7 +25,37 @@ def contact_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
     
-    
+
+    # fetches the data 
+    data_in_url_form = u'{}'.format(request.body)
+    decoded_data_from_url = urllib.parse.unquote(data_in_url_form)
+    location_of_cart = decoded_data_from_url.find("cart_storage") + 13
+    data = json.loads(decoded_data_from_url[location_of_cart:-1])
+    # fetches the cart
+    cart = Cart.objects.get(id=cart_id)
+    items = CartItem.objects.all().filter(cart = cart)
+    do_not_delete = []
+    # product = Product.objects.get(id=id)
+    for p in data:
+        product = Product.objects.get(id = p['id'][1:])
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+        cart_item.quantity = p['amount']
+        cart_item.save()
+        do_not_delete.append(int(p['id'][1:]))
+    print(do_not_delete)
+    # delete items that are not in cart
+    for item in items:
+        if item.product.id not in do_not_delete:
+            item.delete()
+    # update the total of the cart
+    total_of_cart = 0
+    for item in cart.cartitem_set.all():
+        line_total = item.product.getPriceInt() * item.quantity
+        total_of_cart += line_total
+    request.session['total_items'] = cart.cartitem_set.count()
+    cart.total = total_of_cart
+    cart.save()
+
     # create the order here, fill out the initial stuff
     try:
         order = Order.objects.get(cart = cart_id)
