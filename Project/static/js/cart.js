@@ -51,13 +51,23 @@
         let cart = JSON.parse(localStorage.getItem("cart"));
         // find the index, if it's not in cart returns -1
         product_inedx = cart.findIndex((obj => obj.id == product));
+        product_id = cart[product_inedx].id;
         cart[product_inedx].amount -= amount;
         if(cart[product_inedx].amount <= 0){
             cart.splice(product_inedx, 1);
         }
         localStorage.setItem("cart", JSON.stringify(cart));
+        console.log("inf"+product_id);
+        deleteElementIfZero(product_id.substring(1));
         updateCartInput();
         updateCartSize();
+    }
+    function deleteElementIfZero(id){
+        let el = document.getElementById("inf"+id);
+        if(el.value == 0){
+            let to_remove = el.parentElement.parentElement.parentElement;  
+            to_remove.classList.add("hidden");
+        }
     }
     function addOnClick(){
         let buttons = document.getElementsByClassName("btn-cart");
@@ -81,6 +91,7 @@
         let rem = document.getElementsByClassName("dec");
 
         for(let i=0; i < add.length; i++){
+            console.log(add[i]);
             add[i].onclick = function(){
                 addToCart("p" + add[i].id.substring(1));
                 setTotalPrice();
