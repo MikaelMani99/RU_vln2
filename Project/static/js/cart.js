@@ -80,7 +80,7 @@
             buttons[i].onclick = function(){
                 addToCart(buttons[i].id);
                 setTotalPrice();
-                etTotalPrice();
+                getTotalPrice();
             }
         }
     }
@@ -110,20 +110,30 @@
         }
     }
     function setTotalPrice(){
-        let items = document.getElementsByClassName("product-price");
-        let total_price = 0;
-        for(let i = 0; i < items.length; i++){
-            let price = (items[i].innerText).substring(1);
-            let id = "inf" + (items[i].id).substring(5);
-            let amount = document.getElementById(id).value;
-            total_price += amount * price;
+        try{
+            let items = document.getElementsByClassName("product-price");
+            let total_price = 0;
+            for(let i = 0; i < items.length; i++){
+                let price = (items[i].innerText).substring(1);
+                let id = "inf" + (items[i].id).substring(5);
+                let amount = document.getElementById(id).value;
+                total_price += amount * price;
+            }
+            localStorage.setItem("total_price", total_price.toFixed(2));
+        }catch{
+            return;
         }
-        localStorage.setItem("total_price", total_price.toFixed(2));
+        
     }
     function getTotalPrice(){
-        total_price = localStorage.getItem("total_price");
-        let el = document.getElementById("total_price");
-        el.innerHTML = total_price;
+        try{
+            total_price = localStorage.getItem("total_price");
+            let el = document.getElementById("total_price");
+            el.innerHTML = total_price;
+        }catch{
+            return;
+        }
+        
     }
     if(window.location.pathname === "/chest/"){
         setTotalPrice();

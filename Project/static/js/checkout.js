@@ -16,8 +16,6 @@
         let form = document.getElementById("contact_form");
             form.onsubmit = function(){
                 contactSaveLocalstorage();
-                setTotalPrice();
-                getTotalPrice();
             }
     }
     function contactLocalStorage(){
@@ -65,14 +63,14 @@
         } 
         
     }
-    if(window.location.href === "http://localhost:8000/checkout/"){
+    if(window.location.pathname === "/checkout/"){
         addSaveOnClick();
         contactLocalStorage();
     }
-    if(window.location.href === "http://localhost:8000/checkout/payment/"){
+    if(window.location.pathname === "/checkout/payment/"){
         addSaveOnClickPayment();
     }
-    if(window.location.href === "http://localhost:8000/checkout/review/"){
+    if(window.location.pathname === "/checkout/review/"){
         populateCardInfo();
     }
 })();
