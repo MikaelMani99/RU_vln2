@@ -48,6 +48,9 @@ def apply_relevant_filters(form, products):
     selected = form.cleaned_data.get("FILTER_TYPE")
     if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'Choose type...'
         products = products.filter(type=selected)
+    selected = form.cleaned_data.get("FILTER_DISCOUNT")
+    if is_valid_query_param(selected) and selected != '0':  # 0 is the id of 'On sale or not?'
+        products = products.filter(on_sale=selected)
     selected = form.cleaned_data.get("ORDER")
     if is_valid_query_param(selected):
         products = products.order_by(selected)
