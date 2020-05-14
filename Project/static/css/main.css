@@ -333,6 +333,12 @@ h2{
     visibility: visible;
 }
 
+.banner_details {
+    width: 16em;
+    top: 3em;
+    right: -3em;
+}
+
 .sale-True {
     color: #9C1B21;
     font-size: 0.7em;
@@ -396,6 +402,25 @@ h2{
     border: 1px  #e67e22 solid;
     background-color: white;
     color: #e67e22;
+}
+
+.slide-button {
+    height: 2em;
+    width: 1.5em;
+    color: white;
+    background-color: #e67e22;
+    border: none;
+}
+
+.display-left {
+    position: absolute;
+    top: 14em;
+}
+
+.display-right {
+    position: absolute;
+    right: 0em;
+    top: 14em;
 }
 
 @media (min-width: 1200px) {
@@ -659,6 +684,7 @@ Product Detail
     position: relative;
     -webkit-box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
     box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
+    overflow: hidden;
 }
 
 .product-detail-name {
