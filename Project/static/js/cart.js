@@ -62,7 +62,6 @@
             cart.splice(product_inedx, 1);
         }
         localStorage.setItem("cart", JSON.stringify(cart));
-        console.log("inf"+product_id);
         deleteElementIfZero(product_id.substring(1));
         updateCartInput();
         updateCartSize();
@@ -96,7 +95,6 @@
         let rem = document.getElementsByClassName("dec");
 
         for(let i=0; i < add.length; i++){
-            console.log(add[i]);
             add[i].onclick = function(){
                 addToCart("p" + add[i].id.substring(1));
                 setTotalPrice();
