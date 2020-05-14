@@ -51,6 +51,7 @@ def update_cart(request):
         cart_item.quantity = p['amount']
         cart_item.save()
         do_not_delete.append(int(p['id'][1:]))
+
     # delete items that are not in cart
     for item in items:
         if item.product.id not in do_not_delete:
