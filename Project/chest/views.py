@@ -58,10 +58,9 @@ def update_cart(request):
         if item.product.id not in do_not_delete:
             item.delete()
 
-    
     total_of_cart = 0
     for item in cart.cartitem_set.all():
-        line_total = item.product.price * item.quantity
+        line_total = item.product.getPriceInt() * item.quantity
         total_of_cart += line_total
     request.session['total_items'] = cart.cartitem_set.count()
     cart.total = total_of_cart
