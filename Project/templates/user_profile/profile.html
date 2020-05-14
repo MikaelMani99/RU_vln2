@@ -1,16 +1,19 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content%}
-    <div class="profile_card">
-        <img class="profile_picture" src="{% static 'images/johannprofile.jpg' %}" alt="Johann Picture">
+
+   <div class="profile_card">
+        <img class="profile_picture" src="{{ user.profile.image }}" alt="Profile Picture">
         <div class="profile_name">
-            {{ user.full_name }}
+            {{ user.username }}
         </div>
         <div class="profile_info">
             <br>
-            <p> {{ user.email }} </p>
-            <p> {{ user.phone }} </p>
-            <p> {{ user.address }} </p>
+            <p> Username: {{ user.username }} </p>
+            <p> Phone: {{ user.profile.phone }} </p>
+            <p> Address: {{ user.profile.address }} </p>
         </div>
+        <li><a href="{% url 'update_profile' %}">   Update</a></li>
     </div>
+
 {% endblock %}
