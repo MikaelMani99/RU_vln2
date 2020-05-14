@@ -29,8 +29,7 @@ def update_cart(request):
     decoded_data_from_url = urllib.parse.unquote(data_in_url_form)
     location_of_cart = decoded_data_from_url.find("cart_storage") + 13
     data = json.loads(decoded_data_from_url[location_of_cart:-1])
-    print(data)
-    
+
     # fetch id of cart session, create a new one if there is none
     try:
         cart_id = request.session['id_of_cart']
@@ -52,7 +51,6 @@ def update_cart(request):
         cart_item.quantity = p['amount']
         cart_item.save()
         do_not_delete.append(int(p['id'][1:]))
-    print(do_not_delete)
     # delete items that are not in cart
     for item in items:
         if item.product.id not in do_not_delete:
