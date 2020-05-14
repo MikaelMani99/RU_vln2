@@ -8,7 +8,8 @@
     <div class="product_detail_container">
         <div class="product-detail-name">{{ product.name }}</div>
         <div class="product-detail-category">{{ product.category}}</div>
-        <div class="product-detail-price">{{ product.getPrice}}</div>
+        <div class="product-info product-price display-sale-price-{{ product.on_sale }}"> {{product.getPrice }}</div>
+        <div class="product-info product-price"> <p class="sale-{{ product.on_sale }}">{{ product.getOriginalPrice }}</p></div>
         <div class="product-qty-plunder-wrapper">
             <div class="product-qty detail-qty">
                 <div class="qty-button">-</div>
