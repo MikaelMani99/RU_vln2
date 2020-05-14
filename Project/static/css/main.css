@@ -364,6 +364,14 @@ h2{
     text-transform: uppercase;
 }
 
+.category-box {
+    display: flex;
+    flex-flow: row wrap;
+    height: 34em;
+    overflow-y: auto;
+    min-width: 75em;
+}
+
 .category-block {
     display: flex;
     flex-flow: row wrap;

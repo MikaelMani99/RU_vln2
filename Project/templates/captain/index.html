@@ -3,33 +3,43 @@
 {% endblock %}
 {% block content%}
     <div class="category-block">
-    <div class="category-name">Consoles</div>
-    {% for product in products.consoles %}
-    {% include 'products/single_product.html' with product=product %}
-    {% endfor %}
+        <div class="category-name">Consoles</div>
+        <div class="category-box">
+            {% for product in products.consoles %}
+            {% include 'products/single_product.html' with product=product %}
+            {% endfor %}
+        </div>
     </div>
     <div class="category-block">
-    <div class="category-name">Games</div>
-    {% for product in products.games %}
-    {% include 'products/single_product.html' with product=product %}
-    {% endfor %}
+        <div class="category-name">Games</div>
+        <div class="category-box">
+            {% for product in products.games %}
+            {% include 'products/single_product.html' with product=product %}
+            {% endfor %}
+        </div>
     </div>
     <div class="category-block">
-    <div class="category-name">Accessories</div>
-    {% for product in products.accessories %}
-    {% include 'products/single_product.html' with product=product %}
-    {% endfor %}
+        <div class="category-name">Accessories</div>
+        <div class="category-box">
+            {% for product in products.accessories %}
+            {% include 'products/single_product.html' with product=product %}
+            {% endfor %}
+        </div>
     </div>
     <div class="category-block">
-    <div class="category-name">Posters</div>
-    {% for product in products.posters %}
-    {% include 'products/single_product.html' with product=product %}
-    {% endfor %}
+        <div class="category-name">Posters</div>
+        <div class="category-box">
+            {% for product in products.posters %}
+            {% include 'products/single_product.html' with product=product %}
+            {% endfor %}
+        </div>
     </div>
     <div class="category-block">
-    <div class="category-name">Other</div>
-        {% for product in products.other %}
-        {% include 'products/single_product.html' with product=product %}
-        {% endfor %}
+        <div class="category-name">Other</div>
+        <div class="category-box">
+            {% for product in products.other %}
+            {% include 'products/single_product.html' with product=product %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
