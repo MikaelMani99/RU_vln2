@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block content%}
+<div class="your_chest">YOUR CHEST</div>
 <div class="cart">
-    <h1>Cart</h1>
     {% for item in cart.cartitem_set.all %}
     <div class="cart_row cart_item">
         <a href='../product/{{item.product.id}}' class="cart-product-detail">
@@ -16,12 +16,32 @@
             <div id="a{{item.product.id}}" class="inc qty-button">+</div>
         </div>
         <div class="product-price">{{ item.product.getPrice }}</div>
-        <a href='{% url "update_cart" %}'>Remove</a>
     </div>
     {% endfor %}
-    <div class="cart_total">
-        <h3>Total: {{ cart.getTotalPrice }}</h3>
-        <a href="{% url 'contact_info_page' %}">Proceed to checkout</a>
+</div>
+<div class="cart_details">
+    <a href="" class="checkout-btn">Continue Shopping</a>
+    <div class="order-sum">Order Summary</div>
+    <div class="order-details-text">
+        <div>Sub-total:</div>
+        <div>$0.00</div>
+    </div>
+    <div class="order-details-text">
+        <div>Tax:</div>
+        <div>$0.00</div>
+    </div>
+    <div class="order-details-text">
+        <div>Shipping:</div>
+        <div>FREE</div>
+    </div>
+    <div class="cart-total order-details-text">
+        <div>Total:</div>
+        <div>{{ cart.getTotalPrice }}</div>
+    </div>
+    <a href="{% url 'contact_info_page' %}" class="checkout-btn">Checkout</a>
+    <div class="accepted-payment">
+        We accept:
+        <img src="https://pluspng.com/img-png/payment-method-png-payment-options-1003.png" alt="Payment Methods"/>
     </div>
 </div>
 {% endblock %}

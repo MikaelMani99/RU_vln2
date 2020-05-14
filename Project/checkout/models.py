@@ -8,7 +8,6 @@ status_choices = (
 )
 
 class Order(models.Model):
-    order_id = models.CharField(max_length=120, default='abc', unique=True)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     status = models.CharField(max_length=120, choices=status_choices, default="Started")
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)

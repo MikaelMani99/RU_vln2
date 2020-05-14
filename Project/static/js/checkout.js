@@ -56,7 +56,8 @@
                         localStorage.getItem("payment_exp_date"), 
                         localStorage.getItem("payment_last_four")];
         for (let i = 0; i < children.length; i++){
-            let el = document.createElement("p")
+            let el = document.createElement("div")
+            el.setAttribute('class', 'review-row');
             el.innerText = children[i]
             parent.appendChild(el);
         } 

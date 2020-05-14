@@ -380,8 +380,8 @@ h2{
     font-family: 'Press Start 2P', cursive;
     overflow: hidden;
     text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
 }
 
@@ -508,10 +508,28 @@ Profile
 Cart
 ========================================================
 */
-
+.your_chest {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: #e67e22;
+    text-shadow: 2px 2px black;
+}
 .cart {
     height: 100%;
-    width: 100%;
+    width: 70%;
+}
+
+.cart_details {
+    display:flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: #ecf0f1;
+    width: 25%;
+    margin-left: 5%;
+    padding: 1em;
 }
 
 .cart_row {
@@ -519,9 +537,8 @@ Cart
     align-items: center;
     width: 100%;
     height: 10em;
-    margin-top: 2em;
     margin-bottom: 2em;
-    border: 2px solid #e67e22;
+    border-top: 1px solid #e67e22;
 }
 
 .product-img {
@@ -575,6 +592,44 @@ Cart
     font-family: 'Press Start 2P', cursive;
     color: black;
     font-size: 2em;
+}
+
+.checkout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3.5em;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #e67e22;
+    text-decoration: none;
+    color: white;
+}
+.order-sum {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+.order-details-text {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', cursive;
+}
+.cart-total {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 1em;
+}
+
+.accepted-payment {
+    margin-top: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.accepted-payment img {
+    margin-top: 0.5em;
+    width: 75%;
 }
 
 /*
@@ -645,4 +700,201 @@ Product Detail
     margin-left: 2em;
     border: 0;
     border-radius: 0;
+}
+
+/*
+========================================================
+Checkout
+========================================================
+*/
+
+.checkout-details-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.progress-contact-wrapper {
+    display: flex;
+    flex-flow: column;
+    width: 65%;
+    margin-right: 5%;
+}
+
+.checkout-progress-wrapper {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1em;
+}
+
+.divider-line {
+    height: 0.5em;
+    width: 12em;
+    margin: 0 1em 0 1em;
+    border: 1px solid #e67e22;
+}
+
+.checkout-step {
+    height: 3em;
+    width:3em;
+    background-color: white;
+    border: 1px solid #e67e22;
+    border-radius: 2em;
+}
+
+.active-step {
+    background-color: #e67e22;
+}
+
+.step-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60em;
+    margin-bottom: 1em;
+}
+
+.step-status-text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    color: #e67e22;
+}
+
+.contact-info {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    padding: 4em;
+}
+
+.order-details {
+    display: flex;
+    flex-flow: column;
+    width: 25%;
+    height: 100%;
+    padding: 2em;
+    background-color: #e67e22;
+    color: white;
+}
+
+.order-product-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+    border-top: 2px solid white;
+}
+
+.your-order-chest {
+    font-size: 1.5em;
+    text-shadow: 2px 2px black;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 1em;
+}
+
+.order-product-name-qty {
+    width: 70%;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.order-product-price {
+    font-size: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.order-total {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    justify-content: space-between;
+}
+.order-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.order-form-input {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.2em;
+}
+
+.contact-row {
+    display:flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.big {
+    width: 70%;
+}
+.small {
+    width: 45%;
+}
+
+.step-btn {
+    background-image: none;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 0;
+    color: white;
+}
+.step-btn:hover {
+    border: 1px #e67e22 solid;
+    background-color: white;
+    color: #e67e22;
+}
+.review-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+.review-info-block {
+    border: 2px solid #e67e22;
+    font-family: 'Press Start 2P', cursive;
+    width: 40%;
+}
+.review-info-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    background-color: #e67e22;
+    color: white;
+}
+.review-contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+.review-row {
+    display: flex;
+    justify-content: center;
+    color: #e67e22;
+}
+
+.resize-info {
+    height: 80%;
+}
+
+.confirm-btn {
+    margin-top: 10%;
+    width: 100%;
+    height: 15%;
 }

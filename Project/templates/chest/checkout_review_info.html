@@ -1,22 +1,52 @@
 {% extends 'base.html'%}
 {% block content%}
-<h1>Contact Info</h1>
-{{ order.full_name }}
-{{ order.address }}
-{{ order.city }}
-{{ order.country }}
-{{ order.postal_code }}
-
-<h1>Card Info</h1>
-<div id="card_info"></div>
-<h1>Cart</h1>
-{% for item in cart.cartitem_set.all %}
-  <div class="cart_row cart_item">
-      <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
-      <div class="product-name cart-product-name">{{ item.product }}</div>
-      <div class="product-price">{{ item.product.getPrice }}</div>
-      <p> amount = {{ item.quantity }}</p>
-      <p> total = {{ item.getTotalPrice }} </p>
-  </div>
-{% endfor %}
+<div class="checkout-details-wrapper">
+    <div class="progress-contact-wrapper">
+        <div class="checkout-progress-wrapper">
+            <div class="step-status">
+                <a href="{% url 'contact_info_page' %}"><div class="checkout-step active-step"></div></a>
+                <div class="divider-line"></div>
+                <a href=""><div class="checkout-step active-step"></div></a>
+                <div class="divider-line"></div>
+                <div class="checkout-step active-step"></div>
+            </div>
+            <div class="step-status-text">
+                <div>Shipping Step</div>
+                <div>Payment Step</div>
+                <div>Review Step</div>
+            </div>
+        </div>
+        <div class="review-info-wrapper">
+            <div class="review-info-block">
+                <div class="review-info-title">Contact Information</div>
+                <div class="review-contact-wrapper">
+                    <div class="review-row">Name: {{ order.full_name }}</div>
+                    <div class="review-row">Address: {{ order.address }}</div>
+                    <div class="review-row">City: {{ order.city }}</div>
+                    <div class="review-row">Country: {{ order.country }}</div>
+                    <div class="review-row">Postal Code: {{ order.postal_code }}</div>
+                </div>
+            </div>
+            <div class="review-info-block resize-info">
+                <div class="review-info-title">Payment Information</div>
+                <div id="card_info" class="review-contact-wrapper"></div>
+                <input type="submit" value="Confirm Purchase" class="order-form-input step-btn confirm-btn"/>
+            </div>
+        </div>
+    </div>
+    <div class="order-details">
+        <div class="your-order-chest">Your Chest</div>
+        {% for item in cart.cartitem_set.all %}
+        <div class="order-product-row">
+            <div class="order-product-name-qty">
+                {{ item.product }} (x{{ item.quantity }})
+            </div>
+            <div class="order-product-price">
+            {{ item.getTotalPrice }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="order-product-row order-total"><div>Total:</div><div>{{ cart.getTotalPrice}}</div></div>
+    </div>
+</div>
 {% endblock %}

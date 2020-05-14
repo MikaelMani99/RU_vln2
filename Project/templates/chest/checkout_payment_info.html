@@ -1,20 +1,45 @@
 {% extends 'base.html'%}
 {% block content%}
-<form id="payment_form" action="{% url 'review_info_page' %}" method="POST">{% csrf_token %}
-    <input id="payment_name" type="text" placeholder="Card Holder" required/>
-    <input id="payment_card_nr" type="text" placeholder="Card Number" required/>
-    <input id="payment_cvc" type="text" placeholder="CVC" required/>
-    <input id="payment_exp_date" type="text" placeholder="MM/YY" required/>
-    <input type="submit" value="Next"/>
-</form>
-<h1>Cart</h1>
-{% for item in cart.cartitem_set.all %}
-  <div class="cart_row cart_item">
-      <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
-      <div class="product-name cart-product-name">{{ item.product }}</div>
-      <div class="product-price">{{ item.product.getPrice }}</div>
-      <p> amount = {{ item.quantity }}</p>
-      <p> total = {{ item.getTotalPrice }} </p>
-  </div>
-{% endfor %}
+<div class="checkout-details-wrapper">
+    <div class="progress-contact-wrapper">
+
+        <div class="checkout-progress-wrapper">
+            <div class="step-status">
+                <a href="{% url 'contact_info_page' %}"><div class="checkout-step active-step"></div></a>
+                <div class="divider-line"></div>
+                <div class="checkout-step active-step"></div>
+                <div class="divider-line"></div>
+                <div class="checkout-step"></div>
+            </div>
+            <div class="step-status-text">
+                <div>Shipping Step</div>
+                <div>Payment Step</div>
+                <div>Review Step</div>
+            </div>
+        </div>
+        <div class="contact-info">
+            <form id="payment_form" action="{% url 'review_info_page' %}" class="order-form" method="POST">{% csrf_token %}
+                <input id="payment_name" type="text" placeholder="Card Holder" class="order-form-input big" required/>
+                <input id="payment_card_nr" type="text" placeholder="Card Number" class="order-form-input big" required/>
+                <input id="payment_cvc" type="text" placeholder="CVC" class="order-form-input small" required/>
+                <input id="payment_exp_date" type="text" placeholder="MM/YY" class="order-form-input small" required/>
+                <input type="submit" value="Next" class="order-form-input step-btn small"/>
+            </form>
+        </div>
+    </div>
+    <div class="order-details">
+        <div class="your-order-chest">Your Chest</div>
+        {% for item in cart.cartitem_set.all %}
+        <div class="order-product-row">
+            <div class="order-product-name-qty">
+                {{ item.product }} (x{{ item.quantity }})
+            </div>
+            <div class="order-product-price">
+            {{ item.getTotalPrice }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="order-product-row order-total"><div>Total:</div><div>{{ cart.getTotalPrice}}</div></div>
+    </div>
+</div>
 {% endblock %}
