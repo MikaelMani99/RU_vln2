@@ -3,13 +3,14 @@ from django.utils import timezone
 from django.conf import settings
 
 # Create your models here.
-class Profile(models.Model):
+class Profile(models.Model ):
     user_id = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=30)
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='profile_image/', blank=True)
 
     def __str__(self):
         return self.full_name
