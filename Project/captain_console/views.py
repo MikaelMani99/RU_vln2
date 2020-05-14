@@ -71,7 +71,7 @@ def contact_us(request):
                 headers = {'Reply-To': contact_email}
             )
             email.send()
-            return redirect('contact_us')
+            return redirect('captain_console_index')
 
     context = {'form': ContactUsForm()}
     return render(request, 'captain/contact_us.html', context)
