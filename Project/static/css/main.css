@@ -901,3 +901,9 @@ Checkout
     width: 100%;
     height: 15%;
 }
+
+.thank-you-page {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 40em;
+}
