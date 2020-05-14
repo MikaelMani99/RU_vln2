@@ -109,10 +109,11 @@
         let el = document.getElementById("total_price");
         el.innerHTML = total_price;
     }
-    
-    setTotalPrice();
-    getTotalPrice();
-    addAmountClick();
+    if(window.location.pathname === "/chest/"){
+        setTotalPrice();
+        getTotalPrice();
+        addAmountClick();
+    }
     chestClicked();
     updateCartSize();
     initCart();
