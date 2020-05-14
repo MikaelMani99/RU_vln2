@@ -38,7 +38,10 @@
         <div>Total:</div>
         <div id="total_price">{{ cart.getTotalPrice }}</div>
     </div>
-    <a href="{% url 'contact_info_page' %}" class="checkout-btn">Checkout</a>
+    <form action="{% url 'contact_info_page' %}" method="POST">{% csrf_token %}
+        <input type="hidden" id="checkout_cart" name="cart_storage">
+        <button class="checkout-btn">Checkout</button>
+    </form>
     <div class="accepted-payment">
         We accept:
         <img src="https://pluspng.com/img-png/payment-method-png-payment-options-1003.png" alt="Payment Methods"/>

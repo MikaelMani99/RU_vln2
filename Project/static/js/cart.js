@@ -4,6 +4,11 @@
         let cart = localStorage.getItem("cart");
         let input_cart = document.getElementById("cart_storage");
         input_cart.value = cart;
+        try{
+            document.getElementById("checkout_cart").value = cart;
+        }catch{
+            return
+        }
     }
     function updateCartSize(){
         let cart = JSON.parse(localStorage.getItem("cart"));
