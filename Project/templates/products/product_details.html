@@ -1,9 +1,14 @@
 {% extends 'base.html'%}
-
+{% load static %}
 {% block content%}
 <div class="product_detail_wrapper">
     <div class="product_image_container">
-        <img class="product-detail-img" src="{{ product.productimage_set.first.image }}">
+        {% for img in product.productimage_set.all %}
+            <img class="product-detail-img" src="{{ img.image }}" alt="product_image">
+            <div class="discountRibbon banner{{ product.on_sale }} banner_details">Discount {{ product.getDiscount }}</div>
+        {% endfor %}
+        <button class="slide-button display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="slide-button display-right" onclick="plusDivs(+1)">&#10095;</button>
     </div>
     <div class="product_detail_container">
         <div class="product-detail-name">{{ product.name }}</div>
