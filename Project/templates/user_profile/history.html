@@ -2,11 +2,18 @@
 {% load static %}
 {% block content%}
     <div class="history">
-        <h2>Search history</h2>
+        <div class="your_chest">Your recent searches</div>
+        <ul class="search-list">
+            <li class="search-row">
+                <div class="search-col search-title">Date and time</div>
+                <div class="search-col search-title">Search</div>
+            </li>
         {% for h in history %}
-            {{ h.time_stamp }}
-            {{ h.search }}
-            <br>
+            <li class="search-row">
+                <div class="search-col">{{ h.time_stamp }}</div>
+                <div class="search-col">{{ h.search }}</div>
+            </li>
         {% endfor %}
+        </ul>
     </div>
 {% endblock %}

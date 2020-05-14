@@ -1,9 +1,23 @@
 {% extends 'base.html'%}
 {% block content%}
-    <a href="{% url 'register' %}">register</a>
-    <form method="POST" class="form form-horizontal">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Login">
-    </form>
+<div class="login-block-wrapper">
+    <div class="login-block">
+        <div class="website-logo">
+            <img src="../../static/images/CaptianConsole2.png">
+        </div>
+    </div>
+    <div class="login-block">
+        <div class="login-form-block">
+            <div class="your_chest">Login</div>
+
+            <form method="POST" class="form form-horizontal login-form">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="btn btn-primary step-btn" value="Login">
+            </form>
+            <br>
+            <div>Don't have an account?<a href="{% url 'register' %}" class="sign-up-text"> Sign up here</a></div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -16,7 +16,46 @@
     }
   }
   highlightNavbar();
-  
+
+  //Adds some classes to the user login forms and register login forms created by django
+  function addClassToLoginFormInputs(){
+    if(window.location.href === "http://localhost:8000/profile/login") {
+
+      let usernameInput = document.getElementById("id_username");
+      let passwordInput = document.getElementById("id_password");
+
+      usernameInput.classList.add("login-input");
+      usernameInput.classList.add("user-input");
+      passwordInput.classList.add("login-input");
+      passwordInput.classList.add("pass-input");
+
+      usernameInput.placeholder = "Username";
+      passwordInput.placeholder = "Password";
+    }
+  }
+  addClassToLoginFormInputs();
+
+  function addClassToRegisterFormInputs(){
+    if(window.location.href === "http://localhost:8000/profile/register") {
+      let usernameInput = document.getElementById("id_username");
+      let registerPasswordInput1 = document.getElementById("id_password1");
+      let registerPasswordInput2 = document.getElementById("id_password2");
+
+      usernameInput.classList.add("login-input");
+      usernameInput.classList.add("user-input");
+
+      registerPasswordInput1.classList.add("login-input");
+      registerPasswordInput1.classList.add("pass-input");
+
+      registerPasswordInput2.classList.add("login-input");
+      registerPasswordInput2.classList.add("pass-input");
+
+      usernameInput.placeholder = "Username";
+      registerPasswordInput1.placeholder = "Password";
+      registerPasswordInput2.placeholder = "Confirm Password";
+    }
+  }
+  addClassToRegisterFormInputs();
 
   $(".qty-button").on("click", function() {
 

@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Join us for free!</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Sign up">
-    </form>
+<div class="login-block-wrapper">
+    <div class="login-block">
+        <div class="website-logo">
+            <img src="../../static/images/CaptianConsole2.png">
+        </div>
+    </div>
+    <div class="login-block">
+        <div class="login-form-block">
+            <div class="your_chest">Register</div>
+            <form class="form form-horizontal" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="btn btn-primary step-btn" value="Sign up">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
