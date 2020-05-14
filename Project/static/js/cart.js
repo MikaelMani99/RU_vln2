@@ -64,6 +64,8 @@
         for(let i=0; i < buttons.length; i++){
             buttons[i].onclick = function(){
                 addToCart(buttons[i].id);
+                setTotalPrice();
+                etTotalPrice();
             }
         }
     }
@@ -81,13 +83,35 @@
         for(let i=0; i < add.length; i++){
             add[i].onclick = function(){
                 addToCart("p" + add[i].id.substring(1));
+                setTotalPrice();
+                getTotalPrice();
             }
             rem[i].onclick = function(){
                 removeFromCart("p" + rem[i].id.substring(1));
+                setTotalPrice();
+                getTotalPrice();
             }
         }
     }
+    function setTotalPrice(){
+        let items = document.getElementsByClassName("product-price");
+        let total_price = 0;
+        for(let i = 0; i < items.length; i++){
+            let price = (items[i].innerText).substring(1);
+            let id = "inf" + (items[i].id).substring(5);
+            let amount = document.getElementById(id).value;
+            total_price += amount * price;
+        }
+        localStorage.setItem("total_price", total_price.toFixed(2));
+    }
+    function getTotalPrice(){
+        total_price = localStorage.getItem("total_price");
+        let el = document.getElementById("total_price");
+        el.innerHTML = total_price;
+    }
     
+    setTotalPrice();
+    getTotalPrice();
     addAmountClick();
     chestClicked();
     updateCartSize();
