@@ -18,6 +18,9 @@ from django.urls import path, include
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.shortcuts import redirect
+
+handler404 = 'Project.views.view_404'
 
 urlpatterns = [
     path('', include('captain_console.urls')),
