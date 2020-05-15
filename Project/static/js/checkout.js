@@ -75,15 +75,21 @@
         let city = document.getElementById("id_city");
         let postal_code = document.getElementById("id_postal_code");
         let phone = document.getElementById("id_phone");
+        let full_name = document.getElementById("id_full_name");
+        let email = document.getElementById("id_email");
         // value 
         let ad_val = document.getElementById("user_address");
         let city_val = document.getElementById("user_city");
         let post_val = document.getElementById("user_postal_code");
         let phone_val = document.getElementById("user_phone");
+        let email_val = document.getElementById("user_email");
+        let name_val = document.getElementById("user_full_name");
         address.value = ad_val.innerText;
         city.value = city_val.innerText;
         postal_code.value = post_val.innerText;
         phone.value = phone_val.innerText;
+        full_name.value = name_val.innerText;
+        email.value = email_val.innerText;
     }
     
     if(window.location.pathname === "/checkout/"){
