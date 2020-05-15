@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Captain Console</title>
+        <link rel="icon" href="{% static 'images/CaptianConsole2.png' %}">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Optional theme -->
@@ -27,6 +28,8 @@
         {% include "footer.html"%}
         <!-- Custom Javascript -->
         <script src="{% static 'js/script.js' %}"></script>
+        <!-- Javascript for recently viewed on hompage -->
+        <script src="{% static 'js/recently_viewed.js' %}"></script>
         <!-- Javascript for cart functionality -->
         <script src="{% static 'js/cart.js' %}"></script>
         <!-- Javascript for checkout -->

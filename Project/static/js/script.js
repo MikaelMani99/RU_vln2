@@ -61,12 +61,19 @@
     for (i = 0; i <= 2; i++) {
       let newSpan = document.createElement("span");
       newSpan.classList.add("radio-button");
-      let referenceInput = document.querySelector('#id_ORDER_'+i);
+      let referenceInput = document.querySelector('#id_ORDER_' + i);
       referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
     }
   }
-  if (window.location.pathname.includes("search")) {
-    addSpanForCustomRadioButtons();
+  addSpanForCustomRadioButtons();
+
+  if(window.location.pathname === "search"){
+    for (i = 0; i <= 2; i++) {
+      let newSpan = document.createElement("span");
+      newSpan.classList.add("radio-button");
+      let referenceInput = document.querySelector('#id_ORDER_'+i);
+      referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
+    }
   }
 
   $(".qty-button").on("click", function() {
@@ -88,6 +95,7 @@
     $button.parent().find("input").val(newVal);
 
   });
+
   // clear the localstorage if logged out
   function clearLocalStorage(){
     try{
@@ -136,4 +144,23 @@ $(document).ready(function () {
 
     });
   });
+});
+$(".qty-button").on("click", function() {
+  
+  let $button = $(this);
+  let oldValue = $button.parent().find("input").val();
+
+  if ($button.text() == "+") {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+   // Don't allow decrementing below zero
+    if (oldValue > 0) {
+      var newVal = parseFloat(oldValue) - 1;
+    } else {
+      newVal = 0;
+    }
+  }
+
+  $button.parent().find("input").val(newVal);
+
 });

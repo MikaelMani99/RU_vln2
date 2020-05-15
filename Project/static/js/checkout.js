@@ -63,6 +63,12 @@
         } 
         
     }
+    function clearStorage(){
+        let el = document.getElementById("confirm");
+        el.onclick = function(){
+            localStorage.setItem("cart", "[]");
+        }
+    }
     if(window.location.pathname === "/checkout/"){
         addSaveOnClick();
         contactLocalStorage();
@@ -72,5 +78,6 @@
     }
     if(window.location.pathname === "/checkout/review/"){
         populateCardInfo();
+        clearStorage();
     }
 })();

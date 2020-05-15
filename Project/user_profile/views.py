@@ -8,7 +8,6 @@ from user_profile.forms.profile_form import ProfileForm
 # Create your views here.
 @login_required
 def get_profile_by_id(request):
-    print(request.user.profile.image)
     return render(request, 'user_profile/profile.html', {
         'user': request.user
     })
