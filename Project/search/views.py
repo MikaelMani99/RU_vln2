@@ -20,7 +20,7 @@ def search_page(request):
         product = [{
             'id': p.id,
             'name': p.name,
-            'price': p.getPrice(),
+            'price': p.getOriginalPrice(),
             'firstImage': p.productimage_set.first().image,
             'on_sale': str(p.on_sale),
             'discount': p.getDiscount(),

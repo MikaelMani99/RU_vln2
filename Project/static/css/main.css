@@ -325,12 +325,26 @@ Main Content
     font-size: 1.25em;
 }
 
-.container_picture{
+.container_picture {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 35em;
     height: 25em;
+}
+
+.thank-you-page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 2em;
+}
+.image-text-page {
+    flex: 1 100%;
+    position: relative;
+    width: 100%;
 }
 
 h2{
@@ -381,7 +395,7 @@ h2{
     font-weight: 600;
     font-size: 1em;
     white-space: nowrap;
-    -webkit-transform: rotate(35deg);
+    -w9ebkit-transform: rotate(35deg);
     -moz-transform: rotate(35deg);
     -ms-transform: rotate(35deg);
     -o-transform: rotate(35deg);
@@ -1164,9 +1178,4 @@ Search history
     font-size: 1.2em;
     color: #e67e22;
     border-bottom: 1px solid #e67e22;
-}
-.thank-you-page {
-    font-family: 'Press Start 2P', cursive;
-    font-weight: bold;
-    font-size: 20em;
 }
