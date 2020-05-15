@@ -19,7 +19,7 @@
 
   //Adds some classes to the user login forms and register login forms created by django
   function addClassToLoginFormInputs(){
-    if(window.location.href === "http://localhost:8000/profile/login") {
+    if(window.location.pathname === "/profile/login") {
 
       let usernameInput = document.getElementById("id_username");
       let passwordInput = document.getElementById("id_password");
@@ -36,7 +36,7 @@
   addClassToLoginFormInputs();
 
   function addClassToRegisterFormInputs(){
-    if(window.location.href === "http://localhost:8000/profile/register") {
+    if(window.location.pathname === "/profile/register") {
       let usernameInput = document.getElementById("id_username");
       let registerPasswordInput1 = document.getElementById("id_password1");
       let registerPasswordInput2 = document.getElementById("id_password2");
@@ -69,27 +69,6 @@
     addSpanForCustomRadioButtons();
   }
 
-
-  $(".qty-button").on("click", function() {
-
-    let $button = $(this);
-    let oldValue = $button.parent().find("input").val();
-
-    if ($button.text() == "+") {
-        let newVal = parseFloat(oldValue) + 1;
-      } else {
-     // Don't allow decrementing below zero
-      if (oldValue > 0) {
-        let newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 0;
-      }
-    }
-
-    $button.parent().find("input").val(newVal);
-
-  });
-
   // clear the localstorage if logged out
   function clearLocalStorage(){
     try{
@@ -97,12 +76,32 @@
       logout.onclick = function(){
         window.localStorage.clear();
       }
-      clearLocalStorage();
     }catch{
       return
     }
   }
+  clearLocalStorage();
 })();
+
+$(".qty-button").on("click", function() {
+
+  let $button = $(this);
+  let oldValue = $button.parent().find("input").val();
+
+  if ($button.text() == "+") {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+   // Don't allow decrementing below zero
+    if (oldValue > 0) {
+      var newVal = parseFloat(oldValue) - 1;
+    } else {
+      newVal = 0;
+    }
+  }
+
+  $button.parent().find("input").val(newVal);
+
+});
 
 $(document).ready(function () {
   $('#apply-button').on('click', function (e) {
@@ -138,23 +137,4 @@ $(document).ready(function () {
 
     });
   });
-});
-$(".qty-button").on("click", function() {
-  
-  let $button = $(this);
-  let oldValue = $button.parent().find("input").val();
-
-  if ($button.text() == "+") {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-   // Don't allow decrementing below zero
-    if (oldValue > 0) {
-      var newVal = parseFloat(oldValue) - 1;
-    } else {
-      newVal = 0;
-    }
-  }
-
-  $button.parent().find("input").val(newVal);
-
 });

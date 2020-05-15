@@ -23,13 +23,16 @@
         let recently_viewed = JSON.parse(localStorage.getItem("recently_viewed"));
         for (let i = 0; i < recently_viewed.length; i++) {
             let new_el = document.createElement("li");
+            new_el.classList.add("recent-product-row");
             let image = recently_viewed[i]['image'];
             let id = recently_viewed[i]['id'];
             let name = recently_viewed[i]['name'];
             let description = recently_viewed[i]['description'];
-            new_el.innerHTML =  "<img src=\""+ image+"\">" +
+            new_el.innerHTML =  "<a class =\"recent-image\" href=\"/product/"+ id + "\">" +
+                                "<img src=\""+ image+"\">" + "</a>" +
+                                "<div class =\"product-info-profile\">" +
                                 "<a class =\"recent-name\" href=\"/product/"+ id + "\">"+ name +"</a>" +
-                                "<p class =\"recent-description\">" + description + "</p>"
+                                "<p class =\"recent-description\">" + description + "</p>" + "</div>"
             ul_el.appendChild(new_el);
         } 
     }
