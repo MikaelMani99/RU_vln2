@@ -6,7 +6,10 @@
     <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="update-profile-btn" value="Update" />
+        <div class="action-buttons">
+            <a href="{% url 'profile_page' %}" class="update-profile-btn">Back to profile</a>
+            <input type="submit" class="update-profile-btn" value="Update" />
+        </div>
     </form>
 </div>
 {% endblock %}

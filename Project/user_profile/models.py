@@ -7,7 +7,8 @@ from django_countries.fields import CountryField
 # Create your models here.
 class Profile(models.Model):
     user_id = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255, default="John Doe")
+    full_name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=30)
     city = models.CharField(max_length=255)
