@@ -6,7 +6,9 @@ class ProfileForm(ModelForm):
     class Meta:
         model = Profile
         exclude = ['user_id']
-        fields = ('address',
+        fields = ('full_name',
+                  'email',
+                  'address',
                   'phone',
                   'city',
                   'country',
