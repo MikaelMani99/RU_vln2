@@ -1,22 +1,55 @@
 <footer class="footer mt-auto py-3">
   <div class="container">
-    <div class="company">
-      <h4 class="text-shadow">Company</h4>
-      <span>Menntavegur 1</span><br>
-      <span>Reykjavík</span><br>
-      <span>Iceland</span>
+    <div class="social-media-wrapper">
+      <div class="social-media-block">
+        <div>Follow us on our social media to get updates on our newest products!</div>
+        <div class="social-media-icons">
+          <a href="https://www.facebook.com/haskolinnireykjavik"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/haskolinn"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/haskolinnireykjavik/"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="navigation">
-      <h4 class="text-shadow">Navigation</h4>
-      <a href="{% url 'returns' %}">Shipping and returns</a><br>
-      <a href="{% url 'about_us' %}">Privacy Policy</a><br>
-      <a href="{% url 'privacy_policy' %}">About Us</a>
+    <div class="info-wrapper">
+      <div class="info-block">
+        <h5>Captain Console</h5>
+        <div class="title-line"></div>
+        <div class="info-content">
+          We have always sold all sort of consoles, games and more and welcome all new ideas for anything that's missing.
+        </div>
+      </div>
+      <div class="info-block">
+        <h5>Navigation</h5>
+        <div class="title-line"></div>
+        <div class="info-content">
+          <div><a href="{% url 'profile_page' %}">Account</a></div>
+          <div><a href="{% url 'returns' %}">Shipping and returns</a></div>
+          <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
+          <div><a href="{% url 'about_us' %}">About Us</a></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <h5>Products</h5>
+        <div class="title-line"></div>
+        <div class="info-content">
+          <div><a href="{% url 'category_consoles' %}">Consoles</a></div>
+          <div><a href="{% url 'category_games' %}">Games</a></div>
+          <div><a href="{% url 'category_accessories' %}">Accessories</a></div>
+          <div><a href="{% url 'category_other' %}">Other</a></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <h5>Contact</h5>
+        <div class="title-line"></div>
+        <div class="info-content">
+          <div>Menntavegur 1, Reykjavík</div>
+          <div>info@captainconsole.is</div>
+          <div>+354 599 6200</div>
+        </div>
+      </div>
     </div>
-    <div class="socials">
-      <h4 class="text-shadow">Socials</h4>
-      <a href="https://www.facebook.com/haskolinnireykjavik" class="fa fa-facebook"></a>
-      <a href="https://twitter.com/haskolinn" class="fa fa-twitter"></a>
-      <a href="https://www.instagram.com/haskolinnireykjavik/" class="fa fa-instagram"></a>
+    <div class="copyright-wrapper">
+        <div>© 2020 Copyright: captainconsole.is</div>
     </div>
   </div>
 </footer>

@@ -4,6 +4,7 @@ Fonts
 ========================================================
 */ 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 /*
 ========================================================
@@ -96,7 +97,8 @@ Navigation
     border: none;
     color: white;
     text-shadow: 2px 2px black;
-    padding: 11px 0 11px 0;
+    padding: 0;
+    height: 48px;
 }
 .nav-cart-btn:hover, .nav-cart-btn:focus, .nav-cart-btn:active {
     color: #e67e22;
@@ -168,16 +170,20 @@ Extra Content
 }
 
 .order-filter-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family:  'Press Start 2P', cursive;
     background-color: #e67e22;
     color: white;
-    padding: 0.55em;
+    width: 12em;
+    height: 3em;
 }
 
 .order_field {
     display: flex;
     align-items: center;
-        border: 1px solid #e67e22;
+    border: 1px solid #e67e22;
 }
 
 .order_field ul {
@@ -187,6 +193,8 @@ Extra Content
 }
 
 .order_field li {
+    display: flex;
+    align-items: center;
     font-family:  'Press Start 2P', cursive;
     color: #e67e22;
     margin-left: 1em;
@@ -194,10 +202,66 @@ Extra Content
 }
 
 .order_field li label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    height: 25px;
+    cursor: pointer;
     font-weight: normal;
-    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.order_field input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
+.radio-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.order_field li label:hover input ~ .radio-button {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.order_field li label input:checked ~ .radio-button {
+  background-color: #e67e22;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.radio-button:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator when checked */
+.order_field li label input:checked ~ .radio-button:after {
+  display: block;
+}
+
+.order_field li label .radio-button:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
 
 .filter_field {
     display: flex;
@@ -215,27 +279,13 @@ select:focus {
     box-shadow: none!important;
 }
 
-.filter_select:after {
-    content: '\f078';
-    font: normal normal normal 17px/1 FontAwesome;
-    color: #e67e22;
-    right: 178px;
-    top: 8px;
-    position: absolute;
+.filter_select {
+    height: 3em;
 }
-.filter_type_select:after {
-    content: '\f078';
-    font: normal normal normal 17px/1 FontAwesome;
-    color: #e67e22;
-    right: 8px;
-    top: 8px;
-    position: absolute;
+.filter_type_select {
+    height: 3em;
 }
-
 .filter_field select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     height: 100%;
     padding: 0.5em;
     font-family:  'Press Start 2P', cursive;
@@ -446,64 +496,107 @@ Footer
 ========================================================
 */ 
 .footer{
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto', sans-serif;
     flex-shrink: 0;
     width: 100%;
-    background-color: #2980b9;
     display: flex;
     margin-top: 2em;
 }
-.footer .container{
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding: 0;
+}
+
+.footer .social-media-wrapper {
+    height: 5em;
+    background-color: #2980b9;
+}
+
+.footer .info-wrapper{
     display: flex;
     align-content: space-evenly;
     text-align: center;
+    background-color: #ecf0f1;
+    padding: 2% 15% 2% 15%;
 }
-.company{
-    width: 33%;
 
-}
-.navigation{
-    width: 33%;
-}
-.navigation a{
-    font-family: 'Press Start 2P', cursive;
-    color: black !important;
-    text-decoration: none;
-}
-.socials{
-    width: 33%;
+.copyright-wrapper {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    height: 4em;
+    background-color: #bdc3c7;
 }
-.socials h4{
-    width: 100%;
-}
+
 .text-shadow {
     color: #FFFFFF;
     text-shadow: 3px 3px #000000;
 }
-.fa{
-    width: 10%;
-    font-size: 2em;
-    margin: 2%;
-    padding: 2%;
-    border-radius: 50%;
+
+.title-line {
+    background-color: #2980b9;
+    height: 0.1em;
+    width: 5em;
+    margin-bottom: 2em;
 }
-.fa:hover{
-    background-color: orangered;
-}
-.fa-facebook{
-    color: #4267B2;
-}
-.fa-twitter{
-    color: #1DA1F2;
-}
-.fa-instagram{
-    color: white;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+.info-block h5 {
+    font-family: 'Press Start 2P', cursive;
+    color: #2980b9;
+    text-shadow: 1.5px 1.5px black;
+    text-transform: uppercase;
 }
 
+.info-block {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    width: 25%;
+    padding-right: 5em;
+}
+
+.info-content {
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.info-content div {
+    margin-bottom: 1em;
+}
+
+.info-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.social-media-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 15% 0 15%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: white;
+}
+
+.social-media-icons img {
+    height: 16px;
+    width: 16px;
+}
+
+.social-media-icons a {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    text-decoration: none;
+    color: white;
+}
 /*
 ========================================================
 Profile
@@ -588,6 +681,7 @@ Cart
 
 .cart-product-detail {
     display: flex;
+    align-items: center;
     width: 50%;
     height: 100%;
     text-decoration: none !important;
@@ -595,7 +689,7 @@ Cart
 
 .cart-product-name {
     width: 65%;
-    font-size: 2em;
+        font-size: 1.5em;
     text-shadow: 2px 2px black;
 }
 
@@ -798,7 +892,7 @@ Checkout
     justify-content: space-between;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
-    color: #e67e22;
+    color: black;
 }
 
 .contact-info {
@@ -860,7 +954,7 @@ Checkout
 
 .order-form-input {
     border: 1px solid #e67e22;
-    color: #e67e22;
+    color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5em;
     margin-bottom: 1.5em;

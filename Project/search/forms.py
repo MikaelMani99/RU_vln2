@@ -8,9 +8,9 @@ ORDER = [
     ]
 
 DISCOUNT = [
-    ('0', 'On sale or not?'),
-    ('True', 'On sale'),
-    ('False', 'Not on sale')
+    ('0', 'Discount'),
+    ('True', 'Yes'),
+    ('False', 'No')
 ]
 
 class OrderFilter(forms.Form):

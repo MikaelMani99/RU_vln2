@@ -57,6 +57,18 @@
   }
   addClassToRegisterFormInputs();
 
+  function addSpanForCustomRadioButtons() {
+    for (i = 0; i <= 2; i++) {
+      let newSpan = document.createElement("span");
+      newSpan.classList.add("radio-button");
+      let referenceInput = document.querySelector('#id_ORDER_'+i);
+      console.log(referenceInput);
+      referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
+      console.log(referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling));
+    }
+  }
+  addSpanForCustomRadioButtons();
+
   $(".qty-button").on("click", function() {
 
     var $button = $(this);
