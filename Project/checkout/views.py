@@ -1,5 +1,5 @@
 import time, json, urllib
-from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from product.models import Product, ProductImage, ProductCategory, ProductType
 from chest.models import Cart, CartItem
 from checkout.models import Order
@@ -70,12 +70,10 @@ def contact_info(request):
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
             # form.save()
-            return render(request, 'chest/checkout_payment_info.html', {
-                'contact_form': form,
-                'form': PaymentInfoForm()
-            })
+            return redirect("payment_info_page")
+            # {'contact_form': form}
     return render(request, 'chest/checkout_contact_info.html', {
-        'form': ContactInfoForm()
+        'contact_form': ContactInfoForm()
     })
 
 # def payment_info(request):
@@ -104,10 +102,14 @@ def contact_info(request):
 def payment_info(request):
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
-        print(form.is_valid())
+        print("HEYYYYYYYYY")
         if form.is_valid():
-            return render(request, 'chest/checkout_review_info.html')
-    return render(request, 'chest/checkout_payment_info.html', {'form': PaymentInfoForm()})
+            print("HOOOOOOOOOO")
+            return redirect("review_info_page")
+        # {'payment_form': form}
+    return render(request, 'chest/checkout_payment_info.html', {
+        'payment_form': PaymentInfoForm()
+    })
 
 def review_info(request):
     try:
