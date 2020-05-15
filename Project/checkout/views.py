@@ -4,6 +4,7 @@ from product.models import Product, ProductImage, ProductCategory, ProductType
 from chest.models import Cart, CartItem
 from checkout.models import Order
 from checkout.forms.checkout_forms import ContactInfoForm, PaymentInfoForm
+from user_profile.models import Profile
 
 def read_data(data):
     string_data = "{}".format(data)
@@ -66,14 +67,27 @@ def read_data(data):
 #     return render(request, 'chest/checkout_contact_info.html', {'cart': cart})
 
 def contact_info(request):
+    # fetching the cart
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+    cart = Cart.objects.get(id=cart_id)
+    if request.user.id == None:
+        user = {}
+    else:
+        user = Profile.objects.filter(user_id=request.user).first()
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
             # form.save()
             return redirect("payment_info_page")
-            # {'contact_form': form}
     return render(request, 'chest/checkout_contact_info.html', {
-        'contact_form': ContactInfoForm()
+        'contact_form': ContactInfoForm(),
+        'cart': cart,
+        'user': user
     })
 
 # def payment_info(request):
@@ -100,15 +114,21 @@ def contact_info(request):
 #     return  render(request, 'chest/checkout_payment_info.html', {'cart': cart, 'order':order})
 
 def payment_info(request):
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
-        print("HEYYYYYYYYY")
         if form.is_valid():
-            print("HOOOOOOOOOO")
             return redirect("review_info_page")
         # {'payment_form': form}
     return render(request, 'chest/checkout_payment_info.html', {
-        'payment_form': PaymentInfoForm()
+        'payment_form': PaymentInfoForm(),
+        'cart': cart
     })
 
 def review_info(request):
@@ -119,14 +139,12 @@ def review_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
 
-    try:
-        order = Order.objects.get(cart = cart_id)
-    except:
-        order = None
-        return HttpResponseRedirect("/")
+    if request.user.id == None:
+        user = {}
+    else:
+        user = Profile.objects.filter(user_id=request.user).first()
 
-
-    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'order': order})
+    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'user':user})
 
 def confirm_purchase(request):
     pass
