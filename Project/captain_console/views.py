@@ -3,16 +3,19 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from product.models import Product, ProductImage,  ProductCategory
 from search.views import search_page
-from .forms import ContactUsForm
+from captain_console.forms.contact_form import ContactUsForm
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
 
 def index(request, **kwargs):
+    # Send user to search page if user searched for something
     if 'search_filter' in request.GET:
         return search_page(request)
+    # Send user to relevant category page if category was selected
     if 'category' in kwargs:
         products = Product.objects.filter(category=kwargs['category'])
         page = 'products/product_category.html'
+    # Otherwise show all the categories and it's products
     else:
         products = {
                     'consoles': Product.objects.filter(category=1),
@@ -26,6 +29,7 @@ def index(request, **kwargs):
     return render(request, page, context)
 
 def deals(request):
+    # Get all the products on sale in ordered into relevant categories
     products = {
                 'consoles': Product.objects.filter(category=1, on_sale=True),
                 'games': Product.objects.filter(category=2, on_sale=True),
@@ -38,9 +42,11 @@ def deals(request):
 
 
 def other(request, **kwargs):
+    # Get relevant text page
     return render(request, 'captain/'+kwargs['site']+'.html')
 
 def contact_us(request):
+    # Contact us page, send email to shop when form is committed (have to connect it though)
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():

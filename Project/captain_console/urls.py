@@ -13,4 +13,4 @@ urlpatterns = [
     path('privacy_policy/', views.other, kwargs={'site': 'privacy_policy'}, name="privacy_policy"),
     path('returns/', views.other, kwargs={'site': 'returns'}, name="returns"),
     path('contact_us/', views.contact_us, name="contact_us")
-]   # path(route, view, kwargs=None, name=None)
+]
