@@ -345,6 +345,7 @@ Main Content
     flex: 1 100%;
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
 h2{
@@ -847,6 +848,40 @@ input[type=radio]:checked + label + .tab-content {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
+}
+
+.contact_form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.contact_form form {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+.contact_form label {
+    width: 25%;
+    font-weight: 300;
+}
+
+.contact_form input, select {
+    font-family: 'Roboto', sans-serif;
+    padding: 0.5em;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 0.2em;
+}
+
+.contact_form p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact_form input[type="submit"] {
+    margin-left: 40%;
+    width: 20%;
 }
 /*
 ========================================================
