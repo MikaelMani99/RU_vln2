@@ -102,9 +102,7 @@ def contact_info(request):
 def payment_info(request):
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
-        print("HEYYYYYYYYY")
         if form.is_valid():
-            print("HOOOOOOOOOO")
             return redirect("review_info_page")
         # {'payment_form': form}
     return render(request, 'chest/checkout_payment_info.html', {
