@@ -66,16 +66,25 @@ def read_data(data):
 #     return render(request, 'chest/checkout_contact_info.html', {'cart': cart})
 
 def contact_info(request):
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+    cart = Cart.objects.get(id=cart_id)
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
             # form.save()
             return render(request, 'chest/checkout_payment_info.html', {
                 'contact_form': form,
-                'form': PaymentInfoForm()
+                'form': PaymentInfoForm(),
+                'cart': cart
             })
     return render(request, 'chest/checkout_contact_info.html', {
-        'form': ContactInfoForm()
+        'form': ContactInfoForm(),
+        'cart': cart
     })
 
 # def payment_info(request):
