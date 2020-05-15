@@ -15,7 +15,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile_image/', blank=True)
 
     def __str__(self):
-        return self.full_name
+        return str(self.user_id)
 
 class ProfileImage(models.Model):
     image = models.CharField(max_length=999)
