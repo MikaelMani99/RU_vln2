@@ -19,7 +19,7 @@
 
   //Adds some classes to the user login forms and register login forms created by django
   function addClassToLoginFormInputs(){
-    if(window.location.href === "http://localhost:8000/profile/login") {
+    if(window.location.pathname === "/profile/login") {
 
       let usernameInput = document.getElementById("id_username");
       let passwordInput = document.getElementById("id_password");
@@ -36,7 +36,7 @@
   addClassToLoginFormInputs();
 
   function addClassToRegisterFormInputs(){
-    if(window.location.href === "http://localhost:8000/profile/register") {
+    if(window.location.pathname === "/profile/register") {
       let usernameInput = document.getElementById("id_username");
       let registerPasswordInput1 = document.getElementById("id_password1");
       let registerPasswordInput2 = document.getElementById("id_password2");
