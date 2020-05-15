@@ -21,10 +21,13 @@
            <form class="form form-horizontal" method="POST">
                 {% csrf_token %}
                 {{ form }}
+                {{ contact_form }}
                 <p id="user_city"class="hidden">{{ user.city }} </p>
                 <p id="user_country"class="hidden">{{ user.country }} </p>
                 <p id="user_postal_code"class="hidden">{{ user.postal_code }} </p>
-                <p id="user_address" class="hidden">{{ user.address }}</p>
+                <p id="user_address" class="hidden">{{ user.address }} </p>
+                <p id="user_phone" class="hidden">{{ user.phone }} </p>
+
                 <input type="submit" class="btn btn-primary step-btn" value="Next">
             </form>
 <!--            <form id="contact_form" action="{% url 'payment_info_page' %}" class="order-form" method="POST">{% csrf_token %}-->

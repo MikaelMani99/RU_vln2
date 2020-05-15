@@ -74,15 +74,16 @@
         let address = document.getElementById("id_address");
         let city = document.getElementById("id_city");
         let postal_code = document.getElementById("id_postal_code");
+        let phone = document.getElementById("id_phone");
         // value 
         let ad_val = document.getElementById("user_address");
         let city_val = document.getElementById("user_city");
         let post_val = document.getElementById("user_postal_code");
+        let phone_val = document.getElementById("user_phone");
         address.value = ad_val.innerText;
         city.value = city_val.innerText;
         postal_code.value = post_val.innerText;
-        alert("hallo");
-
+        phone.value = phone_val.innerText;
     }
     
     if(window.location.pathname === "/checkout/"){
