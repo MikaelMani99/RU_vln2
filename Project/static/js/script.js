@@ -62,24 +62,24 @@
       let newSpan = document.createElement("span");
       newSpan.classList.add("radio-button");
       let referenceInput = document.querySelector('#id_ORDER_'+i);
-      console.log(referenceInput);
       referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
-      console.log(referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling));
     }
   }
-  addSpanForCustomRadioButtons();
+  if (window.location.pathname.includes("search")) {
+    addSpanForCustomRadioButtons();
+  }
 
   $(".qty-button").on("click", function() {
 
-    var $button = $(this);
-    var oldValue = $button.parent().find("input").val();
+    let $button = $(this);
+    let oldValue = $button.parent().find("input").val();
 
     if ($button.text() == "+") {
-        var newVal = parseFloat(oldValue) + 1;
+        let newVal = parseFloat(oldValue) + 1;
       } else {
      // Don't allow decrementing below zero
       if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
+        let newVal = parseFloat(oldValue) - 1;
       } else {
         newVal = 0;
       }
@@ -100,7 +100,6 @@
       return
     }
   }
-    
 })();
 
 $(document).ready(function () {

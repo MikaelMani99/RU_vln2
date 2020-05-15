@@ -1,19 +1,53 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content%}
+   <div class="profile_wrapper">
+       <div class="profile_block_small">
+           <img class="profile-picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
+           <div class="profile-title-small">Shipping Information</div>
+           <div class="profile-info">
+                <div> {{ user.profile.address }}, {{ user.profile.country }}</div>
+               <div> {{ user.profile.phone }} </div>
+            </div>
+       </div>
+       <div class="profile_block_large">
+           <div class="profile-name">{{ user.username }}</div>
+           <a href="{% url 'update_profile' %}">Update</a>
+           <div class="tabs">
+                <input id="tab-one" type="radio" name="grp" checked />
+                <label for="tab-one"><i class="fas fa-user"></i> Recently Viewed</label>
+                <div class="tab-content">
+                </div>
+                <input id="tab-two" type="radio" name="grp" />
+                <label for="tab-two"><i class="fas fa-eye"></i> User Information</label>
+                <div class="tab-content">
+                    <div>
+                        <div>Name:</div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div>Country:</div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div>Address:</div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div>Phone:</div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div></div>
+           </div>
+           <div class="tab_container">
+               <div class="tab">
 
-   <div class="profile_card">
-        <img class="profile_picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
-        <div class="profile_name">
-            {{ user.username }}
-        </div>
-        <div class="profile_info">
-            <br>
-            <p> Username: {{ user.username }} </p>
-            <p> Phone: {{ user.profile.phone }} </p>
-            <p> Address: {{ user.profile.address }} </p>
-        </div>
-        <li><a href="{% url 'update_profile' %}">   Update</a></li>
+               </div>
+           </div>
+       </div>
     </div>
 
 {% endblock %}

@@ -602,35 +602,81 @@ Footer
 Profile
 ========================================================
 */
-.profile_name{
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-    color: darkorange;
-    font-size: 1em;
-}
-
-.profile_picture{
-    width: 100%;
-    height: 66%;
-    border: thick;
-    border-radius: 4px;
-    padding: 5px;
-}
-
-.profile_card{
+.profile_wrapper {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profile_block_small {
+    display: flex;
+    flex-flow: column;
+    width: 25%;
+    height: 100%;
+}
+
+.profile_block_large {
+    display: flex;
+    flex-flow: column;
+    width: 70%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+.profile-picture {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 3em;
+}
+
+.profile-title-small {
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 1px solid #e67e22;
+    margin-bottom: 1em;
+}
+
+.profile-name {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: capitalize;
+    color: #e67e22;
+    text-shadow: 2px 2px black;
+    font-size: 1.5em;
+}
+
+.tabs {
+    display: flex;
     flex-wrap: wrap;
-    width: 15em;
-    height: 24em;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tabs label {
+    padding: 0.5em 1em;
+    margin: 0;
+    cursor: pointer;
+    order: 1;
 }
 
-.profile_info{
-    font-size: 0.7em;
-    color: black;
+.tab-content {
+    width: 100%;
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    order: 2;
 }
 
+input[type=radio], .tab-content {
+  display: none;
+}
+
+input[type=radio]:checked + label {
+  background: #fff;
+  border-bottom: 2px solid #e67e22;
+}
+
+input[type=radio]:checked + label + .tab-content {
+  display: block;
+}
 /*
 ========================================================
 Cart
