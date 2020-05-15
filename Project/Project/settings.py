@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
     'search.apps.SearchConfig',
     'user_profile.apps.UserProfileConfig',
-    'django_countries'
+    'django_countries',
+    'creditcards'
 ]
 
 MIDDLEWARE = [
