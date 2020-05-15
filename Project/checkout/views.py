@@ -14,7 +14,6 @@ def read_data(data):
     ret_dict = dict()
     for info in contact_data:
         info = info.split("=")
-        print(info)
         ret_dict[info[0]] = info[1]
     return ret_dict
 
@@ -79,6 +78,12 @@ def contact_info(request):
         user = {}
     else:
         user = Profile.objects.filter(user_id=request.user).first()
+
+    items = CartItem.objects.all().filter(cart = cart)
+    
+    if items.count() == 0:
+        return redirect('/chest/')
+
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
@@ -120,6 +125,7 @@ def payment_info(request):
     except:
         cart_id = None
         return HttpResponseRedirect("/")
+    
 
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
