@@ -284,12 +284,15 @@ select:focus {
 }
 .filter_type_select {
     height: 3em;
+    width: 28%;
 }
 .filter_field select {
     height: 100%;
+    width: 100%;
     padding: 0.5em;
     font-family:  'Press Start 2P', cursive;
     border: 1px solid #e67e22;
+    border-radius: 0;
     color: #e67e22;
 }
 
