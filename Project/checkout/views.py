@@ -87,6 +87,17 @@ def contact_info(request):
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
+            data = read_data(request.body)
+            # create order here
+            order = Order()
+            order.address = data['address']
+            order.cart = cart
+            order.city = data['city']
+            order.country = data['country']
+            order.full_name = data['name']
+            order.postal_code = data['postal_code']
+            order.save()
+            request.session['order_id'] = order.id
             # form.save()
             return redirect("payment_info_page")
     return render(request, 'chest/checkout_contact_info.html', {
@@ -125,7 +136,6 @@ def payment_info(request):
     except:
         cart_id = None
         return HttpResponseRedirect("/")
-    
 
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
@@ -145,12 +155,11 @@ def review_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
 
-    if request.user.id == None:
-        user = {}
-    else:
-        user = Profile.objects.filter(user_id=request.user).first()
+    # grab the order 
+    order_id = request.session['order_id']
+    order = Order.objects.get(id=order_id)
 
-    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'user':user})
+    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'order':order})
 
 def confirm_purchase(request):
     try:
@@ -160,18 +169,8 @@ def confirm_purchase(request):
         cart_id = None
         return HttpResponseRedirect("/")
 
-    if request.user.id == None:
-        user = {}
-    else:
-        user = Profile.objects.filter(user_id=request.user).first()
+    # grab the order 
+    order_id = request.session['order_id']
+    order = Order.objects.get(id=order_id)
     
-    # create the order here
-    order = Order()
-    order.address = user.address
-    order.cart = cart
-    order.city = user.city
-    order.country = user.country
-    order.full_name = user.full_name
-    order.postal_code = user.postal_code
-    order.save()
     return  render(request, 'chest/thank_you_page.html', {'order':order})

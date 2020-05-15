@@ -20,8 +20,30 @@
         <div class="contact-info">
            <form class="form form-horizontal" method="POST">
                 {% csrf_token %}
-                {{ form }}
-                {{ contact_form }}
+                <div class="contact-info-form-row">
+                    <div class="contact-title">Country</div>
+                </div>
+                <div class="contact-info-form-row">
+                    {{ contact_form.country}}
+                </div>
+                <div class="contact-info-form-row">
+                    <div class="col-m"><div class="contact-title">Full name</div></div>
+                    <div class="col-s"><div class="contact-title">Phone</div></div>
+                </div>
+                <div class="contact-info-form-row">
+                    <div class="col-m">{{ contact_form.full_name }}</div>
+                    <div class="col-s">{{ contact_form.phone }}</div>
+                </div>
+                <div class="contact-info-form-row">
+                    <div class="contact-title">Address</div>
+                </div>
+                <div class="contact-info-form-row">
+                    {{ contact_form.address }}
+                </div>
+                <div class="contact-info-form-row">
+                    <div class="col-m">{{ contact_form.city }}</div>
+                    <div class="col-s">{{ contact_form.postal_code }}</div>
+                </div>
                 <p id="user_city"class="hidden">{{ user.city }} </p>
                 <p id="user_country"class="hidden">{{ user.country }} </p>
                 <p id="user_postal_code"class="hidden">{{ user.postal_code }} </p>

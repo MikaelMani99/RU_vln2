@@ -36,16 +36,17 @@
         }
     }
     function paymentSaveLocalstorage(){
-        let name = document.getElementById("payment_name").value;
-        let exp_end = document.getElementById("payment_exp_date").value;
-        let card = document.getElementById("payment_card_nr").value;
+        let name = document.getElementById("id_name").value;
+        let exp_end = document.getElementById("id_expiry").value;
+        let card = document.getElementById("id_number").value;
         let last_four = card.substring(card.length-4, card.length);
         localStorage.setItem("payment_name", name);
         localStorage.setItem("payment_exp_date", exp_end);
         localStorage.setItem("payment_last_four", last_four);
     }
     function addSaveOnClickPayment(){
-        let payment_form = document.getElementById('payment_form')
+        let payment_form = document.getElementsByTagName("form")[2];
+        console.log(payment_form);
         payment_form.onsubmit = function(){
             paymentSaveLocalstorage();
         }

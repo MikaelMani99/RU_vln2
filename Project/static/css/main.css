@@ -1227,10 +1227,11 @@ Checkout
 }
 
 .step-btn {
+    width: 40%;
     background-image: none;
     background-color: #e67e22;
-    border: none;
-    border-radius: 0;
+    border: 1px #e67e22 solid;
+    border-radius: 0.2em;
     color: white;
 }
 .step-btn:hover {
@@ -1281,6 +1282,86 @@ Checkout
     height: 15%;
 }
 
+.form-control {
+    display: flex;
+    flex-flow: row;
+}
+
+.col-m {
+    width: 69%;
+}
+
+.col-s {
+    width: 30%;
+}
+.contact-info img {
+    display: none;
+}
+.contact-info-form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1% 0 1% 0;
+}
+
+.contact-info-col-space {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+.contact-title {
+    font-weight: bold;
+}
+
+.payment-block {
+    display: flex;
+    flex-flow: column;
+    padding: 1em;
+    width: 50%;
+    height: 100%;
+    margin-right: 1%;
+    margin-left: 1%;
+    -webkit-box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
+    box-shadow: -1.1px 2.8px 15px 0 rgba(0,0,0,.15);
+}
+
+.payment-info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 4em;
+    font-family: 'PayPal-Sans Small', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.paypal-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+}
+
+.paypal-info-text {
+    padding: 1em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+}
+
+.paypal-button {
+    width: 75%;
+    background-image: none;
+    background-color: #0070BA;
+    padding: 1em;
+    border: 1px solid #0070BA;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 2em;
+}
 /*
 ========================================================
 Login
