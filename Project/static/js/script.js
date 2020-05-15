@@ -61,20 +61,14 @@
     for (i = 0; i <= 2; i++) {
       let newSpan = document.createElement("span");
       newSpan.classList.add("radio-button");
-      let referenceInput = document.querySelector('#id_ORDER_' + i);
-      referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
-    }
-  }
-  addSpanForCustomRadioButtons();
-
-  if(window.location.pathname === "search"){
-    for (i = 0; i <= 2; i++) {
-      let newSpan = document.createElement("span");
-      newSpan.classList.add("radio-button");
       let referenceInput = document.querySelector('#id_ORDER_'+i);
       referenceInput.parentNode.insertBefore(newSpan, referenceInput.nextSibling);
     }
   }
+  if (window.location.pathname.includes("search")) {
+    addSpanForCustomRadioButtons();
+  }
+
 
   $(".qty-button").on("click", function() {
 

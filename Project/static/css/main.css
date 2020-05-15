@@ -667,6 +667,8 @@ Profile
 }
 
 .tab-content {
+    display: flex;
+    flex-flow: column;
     width: 100%;
     padding: 1em;
     border-top: 1px solid #ddd;
@@ -686,6 +688,18 @@ input[type=radio]:checked + label {
 input[type=radio]:checked + label + .tab-content {
   display: block;
 }
+
+.user-info-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+}
+
+.user-info-title-col {
+    width: 20%;
+    font-weight: bold;
+}
+
 /*
 ========================================================
 Cart

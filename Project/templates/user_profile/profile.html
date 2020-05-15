@@ -12,39 +12,37 @@
        </div>
        <div class="profile_block_large">
            <div class="profile-name">{{ user.username }}</div>
-           <a href="{% url 'update_profile' %}">Update</a>
+           <div>Member since: {{ user.date_joined }}</div>
            <div class="tabs">
-                <input id="tab-one" type="radio" name="grp" checked />
-                <label for="tab-one"><i class="fas fa-user"></i> Recently Viewed</label>
+               <input id="tab-one" type="radio" name="grp" checked />
+                <label for="tab-one"><i class="fas fa-user"></i> User Information</label>
                 <div class="tab-content">
+                    <div class="user-info-row">
+                        <div class="user-info-title-col">Name:</div>
+                        <div>{{ user.username }}</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-title-col">Email:</div>
+                        <div>{{ user.email }}</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-title-col">Country:</div>
+                        <div>{{ user.profile.country }}</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-title-col">Address:</div>
+                        <div>{{ user.profile.address }}</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-title-col">Phone:</div>
+                        <div>{{ user.profile.phone }}</div>
+                    </div>
+                    <a href="{% url 'update_profile' %}"><i class="fas fa-pen"></i>Update Information</a>
                 </div>
                 <input id="tab-two" type="radio" name="grp" />
-                <label for="tab-two"><i class="fas fa-eye"></i> User Information</label>
+                <label for="tab-two"><i class="fas fa-eye"></i> Recently Viewed</label>
                 <div class="tab-content">
-                    <div>
-                        <div>Name:</div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div>Country:</div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div>Address:</div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div>Phone:</div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div></div>
-                    </div></div>
-           </div>
-           <div class="tab_container">
-               <div class="tab">
-               </div>
+                </div>
            </div>
        </div>
     </div>
