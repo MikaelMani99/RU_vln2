@@ -20,7 +20,7 @@
         <div class="contact-info">
            <form class="form form-horizontal" method="POST">
                 {% csrf_token %}
-                {{ form }}
+                {{ contact_form }}
                 <input type="submit" class="btn btn-primary step-btn" value="Next">
             </form>
 <!--            <form id="contact_form" action="{% url 'payment_info_page' %}" class="order-form" method="POST">{% csrf_token %}-->
