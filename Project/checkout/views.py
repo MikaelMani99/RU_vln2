@@ -9,7 +9,7 @@ from user_profile.models import Profile
 def read_data(data):
     string_data = "{}".format(data)
     string_data = urllib.parse.unquote(string_data)
-    name_location = string_data.find('name')
+    name_location = string_data.find('country')
     contact_data = string_data[name_location:-1].split("&")
     ret_dict = dict()
     for info in contact_data:
@@ -94,7 +94,7 @@ def contact_info(request):
             order.cart = cart
             order.city = data['city']
             order.country = data['country']
-            order.full_name = data['name']
+            order.full_name = data['full_name']
             order.postal_code = data['postal_code']
             order.save()
             request.session['order_id'] = order.id
