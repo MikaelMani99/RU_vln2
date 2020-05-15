@@ -114,13 +114,21 @@ def contact_info(request):
 #     return  render(request, 'chest/checkout_payment_info.html', {'cart': cart, 'order':order})
 
 def payment_info(request):
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
         if form.is_valid():
             return redirect("review_info_page")
         # {'payment_form': form}
     return render(request, 'chest/checkout_payment_info.html', {
-        'payment_form': PaymentInfoForm()
+        'payment_form': PaymentInfoForm(),
+        'cart': cart
     })
 
 def review_info(request):
@@ -131,14 +139,12 @@ def review_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
 
-    try:
-        order = Order.objects.get(cart = cart_id)
-    except:
-        order = None
-        return HttpResponseRedirect("/")
+    if request.user.id == None:
+        user = {}
+    else:
+        user = Profile.objects.filter(user_id=request.user).first()
 
-
-    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'order': order})
+    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'user':user})
 
 def confirm_purchase(request):
     pass
