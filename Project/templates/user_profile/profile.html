@@ -3,7 +3,11 @@
 {% block content%}
    <div class="profile_wrapper">
        <div class="profile_block_small">
-           <img class="profile-picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
+        {% if user.profile.image.url %}
+           <img class="profile-picture" src=" {{ user.profile.image.url }}" alt="Profile Picture">
+        {% else %}
+            <img class="profile-picture" src="{% static 'images/CaptianConsole2.png' %}" alt="Profile Picture">
+        {% endif %}
            <div class="profile-title-small">Shipping Information</div>
            <div class="profile-info">
                 <div> {{ user.profile.address }}, {{ user.profile.country }}</div>
@@ -42,6 +46,7 @@
                 <input id="tab-two" type="radio" name="grp" />
                 <label for="tab-two"><i class="fas fa-eye"></i> Recently Viewed</label>
                 <div class="tab-content">
+                    <ul id = "recently_viewed"></ul>
                 </div>
            </div>
        </div>
