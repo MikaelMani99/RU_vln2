@@ -5,7 +5,7 @@
     {% for item in cart.cartitem_set.all %}
     <div class="cart_row cart_item">
         <a href='../product/{{item.product.id}}' class="cart-product-detail">
-            <img class="product-img" src="{{ item.product.productimage_set.first.image }}">
+            <img class="product-img" src="{{ item.product.productimage_set.first.image }}" alt="Product image">
             <div class="product-name cart-product-name">{{ item.product }}</div>
         </a>
         <div class="product-qty">
