@@ -21,6 +21,10 @@
            <form class="form form-horizontal" method="POST">
                 {% csrf_token %}
                 {{ form }}
+                <p>{{ user }} </p>
+                {{ user.city}}
+                {{ user.country}}
+                {{ user.post_code}}
                 <input type="submit" class="btn btn-primary step-btn" value="Next">
             </form>
 <!--            <form id="contact_form" action="{% url 'payment_info_page' %}" class="order-form" method="POST">{% csrf_token %}-->

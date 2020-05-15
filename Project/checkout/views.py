@@ -4,6 +4,7 @@ from product.models import Product, ProductImage, ProductCategory, ProductType
 from chest.models import Cart, CartItem
 from checkout.models import Order
 from checkout.forms.checkout_forms import ContactInfoForm, PaymentInfoForm
+from user_profile.models import Profile
 
 def read_data(data):
     string_data = "{}".format(data)
@@ -66,6 +67,7 @@ def read_data(data):
 #     return render(request, 'chest/checkout_contact_info.html', {'cart': cart})
 
 def contact_info(request):
+    # fetching the cart
     try:
         cart_id = request.session['id_of_cart']
         cart = Cart.objects.get(id=cart_id)
@@ -73,6 +75,10 @@ def contact_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
     cart = Cart.objects.get(id=cart_id)
+    if request.user.id == None:
+        user = {}
+    else:
+        user = Profile.objects.filter(user_id=request.user).first()
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
@@ -80,11 +86,14 @@ def contact_info(request):
             return render(request, 'chest/checkout_payment_info.html', {
                 'contact_form': form,
                 'form': PaymentInfoForm(),
-                'cart': cart
+                'cart': cart,
+                'user': user
             })
+    print(user)
     return render(request, 'chest/checkout_contact_info.html', {
         'form': ContactInfoForm(),
-        'cart': cart
+        'cart': cart,
+        'user': user
     })
 
 # def payment_info(request):
