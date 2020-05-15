@@ -66,6 +66,3 @@ def update_cart(request):
     cart.save()
     
     return HttpResponseRedirect(reverse("cart_page"))
-
-def thank_you(request):
-    return render(request, 'chest/thank_you_page.html')

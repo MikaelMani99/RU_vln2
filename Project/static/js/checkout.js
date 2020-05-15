@@ -36,16 +36,17 @@
         }
     }
     function paymentSaveLocalstorage(){
-        let name = document.getElementById("payment_name").value;
-        let exp_end = document.getElementById("payment_exp_date").value;
-        let card = document.getElementById("payment_card_nr").value;
+        let name = document.getElementById("id_name").value;
+        let exp_end = document.getElementById("id_expiry").value;
+        let card = document.getElementById("id_number").value;
         let last_four = card.substring(card.length-4, card.length);
         localStorage.setItem("payment_name", name);
         localStorage.setItem("payment_exp_date", exp_end);
         localStorage.setItem("payment_last_four", last_four);
     }
     function addSaveOnClickPayment(){
-        let payment_form = document.getElementById('payment_form')
+        let payment_form = document.getElementsByTagName("form")[2];
+        console.log(payment_form);
         payment_form.onsubmit = function(){
             paymentSaveLocalstorage();
         }
@@ -75,15 +76,21 @@
         let city = document.getElementById("id_city");
         let postal_code = document.getElementById("id_postal_code");
         let phone = document.getElementById("id_phone");
+        let full_name = document.getElementById("id_full_name");
+        let email = document.getElementById("id_email");
         // value 
         let ad_val = document.getElementById("user_address");
         let city_val = document.getElementById("user_city");
         let post_val = document.getElementById("user_postal_code");
         let phone_val = document.getElementById("user_phone");
+        let email_val = document.getElementById("user_email");
+        let name_val = document.getElementById("user_full_name");
         address.value = ad_val.innerText;
         city.value = city_val.innerText;
         postal_code.value = post_val.innerText;
         phone.value = phone_val.innerText;
+        full_name.value = name_val.innerText;
+        email.value = email_val.innerText;
     }
     
     if(window.location.pathname === "/checkout/"){

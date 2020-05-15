@@ -14,7 +14,6 @@ def read_data(data):
     ret_dict = dict()
     for info in contact_data:
         info = info.split("=")
-        print(info)
         ret_dict[info[0]] = info[1]
     return ret_dict
 
@@ -79,9 +78,26 @@ def contact_info(request):
         user = {}
     else:
         user = Profile.objects.filter(user_id=request.user).first()
+
+    items = CartItem.objects.all().filter(cart = cart)
+    
+    if items.count() == 0:
+        return redirect('/chest/')
+
     if request.method == 'POST':
         form = ContactInfoForm(data=request.POST)
         if form.is_valid():
+            data = read_data(request.body)
+            # create order here
+            order = Order()
+            order.address = data['address']
+            order.cart = cart
+            order.city = data['city']
+            order.country = data['country']
+            order.full_name = data['name']
+            order.postal_code = data['postal_code']
+            order.save()
+            request.session['order_id'] = order.id
             # form.save()
             return redirect("payment_info_page")
     return render(request, 'chest/checkout_contact_info.html', {
@@ -139,12 +155,22 @@ def review_info(request):
         cart_id = None
         return HttpResponseRedirect("/")
 
-    if request.user.id == None:
-        user = {}
-    else:
-        user = Profile.objects.filter(user_id=request.user).first()
+    # grab the order 
+    order_id = request.session['order_id']
+    order = Order.objects.get(id=order_id)
 
-    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'user':user})
+    return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'order':order})
 
 def confirm_purchase(request):
-    pass
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+
+    # grab the order 
+    order_id = request.session['order_id']
+    order = Order.objects.get(id=order_id)
+    
+    return  render(request, 'chest/thank_you_page.html', {'order':order})

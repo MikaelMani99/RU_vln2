@@ -19,6 +19,5 @@ from . import views
 
 urlpatterns = [
     path('', views.get_cart, name="cart_page"),
-    path('update/', views.update_cart, name="update_cart"),
-    path('thank_you', views.thank_you, name="thank_you_page")
+    path('update/', views.update_cart, name="update_cart")
 ]
