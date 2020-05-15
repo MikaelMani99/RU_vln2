@@ -7,7 +7,7 @@ from creditcards.forms import CardNumberField, CardExpiryField, SecurityCodeFiel
 class ContactInfoForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = { 'id', 'phone', 'image' }
+        exclude = {'id', 'phone', 'image', 'user_id'}
         widgets = {
             'name': widgets.TextInput(attrs= {'class':'form-control'}),
             'address': widgets.TextInput(attrs= {'class':'form-control'}),
@@ -16,9 +16,13 @@ class ContactInfoForm(ModelForm):
             'postal': widgets.NumberInput(attrs={'class': 'form-control'})
         }
 
-class ContactInfoForm(ModelForm):
+class PaymentInfoForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput())
-    number = forms.CardNumberField(label='Card Number')
-    cvc = forms.SecurityCodeField(label='CVV/CVC')
-    cc_expiry = CardExpiryField(label='Expiration Date')
+    number = CardNumberField(label='Card Number')
+    cvc = SecurityCodeField(label='CVV/CVC')
+    expiry = CardExpiryField(label='Expiration Date')
+    class Media:
+        css = {
+            'all': ('main.css',)
+        }
     
