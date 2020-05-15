@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.contact_info, name="contact_info_page"),
     path('payment/', views.payment_info, name="payment_info_page"),
-    path('review/', views.review_info, name="review_info_page")
+    path('review/', views.review_info, name="review_info_page"),
+    path('thank_you/', views.thank_you, name="thank_you_page")
 ]
