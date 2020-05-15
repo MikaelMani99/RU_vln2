@@ -7,10 +7,11 @@ from creditcards.forms import CardNumberField, CardExpiryField, SecurityCodeFiel
 class ContactInfoForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = {'id', 'phone', 'image', 'user_id'}
+        exclude = {'id', 'image', 'user_id'}
         widgets = {
-            'name': widgets.TextInput(attrs= {'class':'form-control'}),
-            'address': widgets.TextInput(attrs= {'class':'form-control'}),
+            'full_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'phone': widgets.TextInput(attrs={'class': 'form-control'}),
+            'address': widgets.TextInput(attrs={'class': 'form-control'}),
             'country': CountrySelectWidget(attrs={'class': 'form-control'}),
             'city': widgets.TextInput(attrs={'class': 'form-control'}),
             'postal': widgets.NumberInput(attrs={'class': 'form-control'})
