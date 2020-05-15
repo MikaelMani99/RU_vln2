@@ -7,12 +7,12 @@ from django_countries.fields import CountryField
 # Create your models here.
 class Profile(models.Model):
     user_id = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    phone = models.CharField(max_length=30)
-    city = models.CharField(max_length=255)
     country = CountryField()
-    postal_code = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=30)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    postal_code = models.IntegerField()
     image = models.ImageField(upload_to='profile_image/', blank=True)
 
     def __str__(self):

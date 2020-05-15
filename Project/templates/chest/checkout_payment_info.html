@@ -17,19 +17,29 @@
                 <div>Review Step</div>
             </div>
         </div>
-        <div class="contact-info">
-            <form class="form-inline" method='POST' enctype='multipart/form-data'>
-                {% csrf_token %}
-                <p>Cardholder Name</p>
-                {{payment_form.name}}
-                <p>Card Number</p>
-                {{payment_form.number}}
-                <p>CVC</p>
-                {{payment_form.cvc}}
-                <p>Expiration Date</p>
-                {{payment_form.expiry}}
-                <button type="submit" class="btn btn-default">Next</button>
-            </form>
+        <div class="payment-info">
+            <div class="payment-block">
+                <div class="paypal-block">
+                    <div class="paypal-info-text">Connect your PayPal account to speed up the process</div>
+                </div>
+                <div class="paypal-block">
+                    <button class="paypal-button"><i class="fab fa-paypal"></i> Connect with PayPal</button>
+                </div>
+            </div>
+            <div class="payment-block">
+                <form class="form form-horizontal" method='POST' enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <div class="contact-info-form-row"><div class="contact-title">Cardholder Name</div></div>
+                    <div class="contact-info-form-row">{{payment_form.name}}</div>
+                    <div class="contact-info-form-row"><div class="contact-title">Card Number</div></div>
+                    <div class="contact-info-form-row">{{payment_form.number}}</div>
+                    <div class="contact-info-form-row"><div class="contact-title">CVC</div></div>
+                    <div class="contact-info-form-row">{{payment_form.cvc}}</div>
+                    <div class="contact-info-form-row"><div class="contact-title">Expiration Date</div></div>
+                    <div class="contact-info-form-row">{{payment_form.expiry}}</div>
+                    <button type="submit" class="btn btn-default step-btn">Next</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="order-details">
