@@ -1,10 +1,12 @@
 {% extends 'base.html'%}
 {% block content%}
-
+{% load static %}
     <body>
-        <h1> 404 error: Page not found.</h1>
-        <p> Ahoy matey! Unfortunately the isle you were sailing for can not be found.</p>
-        <p> Please return to the home page to continue!</p>
+        <div class="error-container">
+            <h1 class="error-message"> 404 error: Page not found.</h1>
+            <img src="{% static 'images/Stranded_Pirate.png' %}">
+            <p class="kind-message"> Ahoy matey! Unfortunately the isle you were sailing for can not be found. Please return to the home page to continue!</p>
+        </div>
     </body>
 
 {% endblock %}

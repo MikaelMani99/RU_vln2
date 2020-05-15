@@ -2,9 +2,11 @@
 {% block content%}
 
     <body>
-        <h1> 500 error: Internal server error.</h1>
-        <p> Ahoy matey! Unfortunately the ship you were sailing on has taken damage!</p>
-        <p> Please return to the home page to repair and continue your voyage!</p>
+        <div class="error-container">
+            <h1 class="error-message"> 404 error: Page not found.</h1>
+            <img src="{% static 'images/ship_crashed.png' %}">
+            <p class="kind-message"> Ahoy matey! Unfortunately the ship you were sailing on has taken damage! Please return to the home page to repair and continue your voyage!</p>
+        </div>
     </body>
 
 {% endblock %}
