@@ -76,11 +76,11 @@
       logout.onclick = function(){
         window.localStorage.clear();
       }
-      clearLocalStorage();
     }catch{
       return
     }
   }
+  clearLocalStorage();
 })();
 
 $(".qty-button").on("click", function() {
