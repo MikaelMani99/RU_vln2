@@ -14,6 +14,10 @@
             <p> Address: {{ user.profile.address }} </p>
         </div>
         <li><a href="{% url 'update_profile' %}">   Update</a></li>
-    </div>
+   </div>
+   <div>
+       <p> Member since: {{user.date_joined}}</p>
+       <p> Recently viewed: </p>
+   </div>
 
 {% endblock %}
