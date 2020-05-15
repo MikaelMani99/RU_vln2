@@ -3,7 +3,9 @@
 {% block content%}
    <div class="profile_wrapper">
        <div class="profile_block_small">
-           <img class="profile-picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
+           <div class="profile-picture">
+            <img src="{{ user.profile.image.url }}" alt="Profile Picture">
+           </div>
            <div class="profile-title-small">Shipping Information</div>
            <div class="profile-info">
                 <div> {{ user.profile.address }}, {{ user.profile.country }}</div>
@@ -37,7 +39,7 @@
                         <div class="user-info-title-col">Phone:</div>
                         <div>{{ user.profile.phone }}</div>
                     </div>
-                    <a href="{% url 'update_profile' %}"><i class="fas fa-pen"></i>Update Information</a>
+                    <a href="{% url 'update_profile' %}" class="update-profile-btn"><i class="fas fa-arrow-right"></i> Update Information</a>
                 </div>
                 <input id="tab-two" type="radio" name="grp" />
                 <label for="tab-two"><i class="fas fa-eye"></i> Recently Viewed</label>

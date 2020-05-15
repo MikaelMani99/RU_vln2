@@ -1,11 +1,12 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content%}
-    <h1>Profile</h1>
+<div class="profile-title-small update-title">Update Information</div>
+<div class="update_form">
     <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Update" />
+        {{ form.as_p }}
+        <input type="submit" class="update-profile-btn" value="Update" />
     </form>
-
+</div>
 {% endblock %}

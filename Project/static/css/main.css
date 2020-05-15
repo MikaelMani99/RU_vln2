@@ -649,9 +649,14 @@ Profile
 }
 
 .profile-picture {
-    width: 100%;
-    height: fit-content;
+    height: 25em;
+    width: 25em;
     margin-bottom: 3em;
+}
+
+.profile-picture img {
+    height: inherit;
+    width: inherit;
 }
 
 .profile-title-small {
@@ -713,7 +718,85 @@ input[type=radio]:checked + label + .tab-content {
     width: 20%;
     font-weight: bold;
 }
+.update-profile-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #e67e22;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+.update-profile-btn:hover {
+    border: 1px solid #e67e22;
+    background-color: white;
+    color: #e67e22;
+    text-decoration: none;
+}
 
+.update-profile-btn:focus {
+    border: 1px solid #e67e22;
+    background-color: white;
+    color: #e67e22;
+    text-decoration: none;
+}
+.update_block {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.update-profile-info {
+    display: flex;
+    flex-flow: column;
+    width: 70%;
+    margin-left: 5%;
+}
+
+.profile-picture-wrapper {
+    display: flex;
+    width: 25%;
+}
+
+.update_form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.update_form form {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+.update_form label {
+    width: 25%;
+    font-weight: 300;
+}
+
+.update_form input, select {
+    font-family: 'Roboto', sans-serif;
+    padding: 0.5em;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 0.2em;
+}
+
+.update_form p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-title {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.update_form input[type="submit"] {
+    margin-left: 40%;
+    width: 20%;
+}
 /*
 ========================================================
 Cart
