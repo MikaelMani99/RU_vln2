@@ -18,4 +18,19 @@
         recently_viewed.push(obj);
         localStorage.setItem("recently_viewed", JSON.stringify(recently_viewed));
     }
+    if(path[1] === "profile"){
+        let ul_el = document.getElementById("recently_viewed");
+        let recently_viewed = JSON.parse(localStorage.getItem("recently_viewed"));
+        for (let i = 0; i < recently_viewed.length; i++) {
+            let new_el = document.createElement("li");
+            let image = recently_viewed[i]['image'];
+            let id = recently_viewed[i]['id'];
+            let name = recently_viewed[i]['name'];
+            let description = recently_viewed[i]['description'];
+            new_el.innerHTML =  "<img src=\""+ image+"\">" +
+                                "<a class =\"recent-name\" href=\"/product/"+ id + "\">"+ name +"</a>" +
+                                "<p class =\"recent-description\">" + description + "</p>"
+            ul_el.appendChild(new_el);
+        } 
+    }
 })();

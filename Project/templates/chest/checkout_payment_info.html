@@ -18,12 +18,17 @@
             </div>
         </div>
         <div class="contact-info">
-            <form id="payment_form" action="{% url 'review_info_page' %}" class="order-form" method="POST">{% csrf_token %}
-                <input id="payment_name" type="text" placeholder="Card Holder" class="order-form-input big" required/>
-                <input id="payment_card_nr" type="text" placeholder="Card Number" class="order-form-input big" required/>
-                <input id="payment_cvc" type="text" placeholder="CVC" class="order-form-input small" required/>
-                <input id="payment_exp_date" type="text" placeholder="MM/YY" class="order-form-input small" required/>
-                <input type="submit" value="Next" class="order-form-input step-btn small"/>
+            <form class="form-inline" method='POST' enctype='multipart/form-data'>
+                {% csrf_token %}
+                <p>Cardholder Name</p>
+                {{payment_form.name}}
+                <p>Card Number</p>
+                {{payment_form.number}}
+                <p>CVC</p>
+                {{payment_form.cvc}}
+                <p>Expiration Date</p>
+                {{payment_form.expiry}}
+                <button type="submit" class="btn btn-default">Next</button>
             </form>
         </div>
     </div>
