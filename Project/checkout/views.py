@@ -147,4 +147,25 @@ def review_info(request):
     return  render(request, 'chest/checkout_review_info.html', {'cart': cart, 'user':user})
 
 def confirm_purchase(request):
-    pass
+    try:
+        cart_id = request.session['id_of_cart']
+        cart = Cart.objects.get(id=cart_id)
+    except:
+        cart_id = None
+        return HttpResponseRedirect("/")
+
+    if request.user.id == None:
+        user = {}
+    else:
+        user = Profile.objects.filter(user_id=request.user).first()
+    
+    # create the order here
+    order = Order()
+    order.address = user.address
+    order.cart = cart
+    order.city = user.city
+    order.country = user.country
+    order.full_name = user.full_name
+    order.postal_code = user.postal_code
+    order.save()
+    return  render(request, 'chest/thank_you_page.html', {'order':order})

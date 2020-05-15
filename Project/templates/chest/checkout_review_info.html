@@ -30,8 +30,9 @@
             <div class="review-info-block resize-info">
                 <div class="review-info-title">Payment Information</div>
                 <div id="card_info" class="review-contact-wrapper"></div>
-                <br>
-                <a id="confirm" href="{% url 'thank_you_page' %}"class="order-form-input step-btn confirm-btn"/> Confirm Purchase </a></li>
+                <form method="POST" action="{% url 'confirm_purchase_page' %}">{% csrf_token %}
+                    <button id="confirm" class="order-form-input step-btn confirm-btn" type="submit"> Confirm Purchase </button>
+                </form>
             </div>
         </div>
     </div>
