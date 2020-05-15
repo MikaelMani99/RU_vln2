@@ -22,7 +22,11 @@
         <h5>Navigation</h5>
         <div class="title-line"></div>
         <div class="info-content">
-          <div><a href="{% url 'profile_page' %}">Account</a></div>
+          {% if user.is_authenticated %}
+            <div><a href="{% url 'profile_page' %}">Account</a></div>
+          {% else %}
+            <div><a href="{% url 'login' %}">Account</a></div>
+          {% endif %}
           <div><a href="{% url 'returns' %}">Shipping and returns</a></div>
           <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
           <div><a href="{% url 'about_us' %}">About Us</a></div>

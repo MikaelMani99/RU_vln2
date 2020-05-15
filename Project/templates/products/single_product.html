@@ -2,7 +2,7 @@
 <div class="product">
     <a href="/product/{{ product.id }}">
         <div class="product_img">
-            <img src="{{ product.productimage_set.first.image }}">
+            <img src="{{ product.productimage_set.first.image }}" alt="Your profile picture">
             <div class="discountRibbon banner{{ product.on_sale }}">Discount {{ product.getDiscount }}</div>
         </div>
         <div class="product-info product-category"> {{ product.category }}</div>
@@ -10,5 +10,5 @@
         <div class="product-info product-price display-sale-price-{{ product.on_sale }}"> {{product.getPrice }}</div>
         <div class="product-info product-price"> <p class="sale-{{ product.on_sale }}">{{ product.getOriginalPrice }}</p></div>
     </a>
-    <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button" action>Plunder</button>
+    <button id="p{{ product.id }}" type="submit" class="btn btn-primary btn-cart cart-button">Plunder</button>
 </div>
